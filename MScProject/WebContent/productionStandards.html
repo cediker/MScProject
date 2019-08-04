@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Tullis Russell: Quality Control</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/tullisrussell.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+ 
+ <script> 
+
+
+ $( function() {
+	    var availableTags = [
+	      "ActionScript",
+	      "AppleScript",
+	      "Asp",
+	      "BASIC",
+	      "C",
+	      "C++",
+	      "Clojure",
+	      "COBOL",
+	      "ColdFusion",
+	      "Erlang",
+	      "Fortran",
+	      "Groovy",
+	      "Haskell",
+	      "Java",
+	      "JavaScript",
+	      "Lisp",
+	      "Perl",
+	      "PHP",
+	      "Python",
+	      "Ruby",
+	      "Scala",
+	      "Scheme"
+	    ];
+	    $( ".tags" ).autocomplete({
+	      source: availableTags
+	    });
+	  } );
+
+ $.ajax({  
+     url:"testMethodAutocomplete.php",  
+     method:"GET",  
+     data:'',  
+     success:function(data)  
+     {  
+          console.log(data);  
+          
+          $( ".tags" ).autocomplete({
+    	      source: data
+    	    }); 
+     }  
+});
+
+
+
+
+
+  
+ $(document).ready(function(){  
+      var i=1;  
+      $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Test Name" class="form-control name_list" /></td><td><input type="text" name="target[]" placeholder="Target" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+      });  
+      $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+      });  
+      $('#submit').click(function(){            
+           $.ajax({  
+                url:"name.php",  
+                method:"POST",  
+                data:$('#add_name').serialize(),  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     $('#add_name')[0].reset();  
+                }  
+           });  
+      });  
+ }); 
+ </script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  
+  .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+       <img src="images/TullisLogo.png" style="display:inline" alt="Tullis Russell Logo" width="50" height="50"><a class="navbar-brand" href="index.html">Tullis Russell</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="testing.html">Testing</a></li>
+        <li><a href="productionStandards.php" style="color:#b30000">Production Standards</a></li>
+        <li><a href="analysis.html">Analysis</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-2 text-center">
+   <div class="row">
+   
+    <div class="col-sm-4"> 
+      <h1 class="margin">Production Standards</h1>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input class="tags">
+</div> -->
+
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">    
+  <h3 class="margin">Please select one of the following options...</h3><br>
+  
+  <div class="row">
+  <div class="col-sm-3"><button type="button" class="tullisButton">Add new <br> production standard</button></div>
+  <div class="col-sm-3"><button type="button" class="tullisButton">Edit <br> production standard</button></div>
+  <div class="col-sm-3"><button type="button" class="tullisButton">View <br> production standard</button></div>
+  <div class="col-sm-3"><button type="button" class="tullisButton">Delete <br> production standard</button></div>
+</div>
+  
+<div class="container">  
+                <br />  
+                <br />  
+                <h2 align="center">Create Production Standard</h2>  
+                <div class="form-group">  
+                     <form name="add_name" id="add_name">  
+                          <div class="table-responsive">  
+                               <table class="table table-bordered" id="dynamic_field">  
+                                    <tr>  
+                                         <td colspan="2"><input type="text" name="name[]" placeholder="New production standard name" class="form-control name_list" /></td>  
+                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
+                                    </tr>  
+                               </table>  
+                               <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />  
+                          </div>  
+                     </form>  
+                </div>  
+           </div>  
+           </div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Company Website: <a href="http://www.tullisrussell.com/">www.tullisrussell.com</a></p> 
+</footer>
+
+</body>
+</html>
+
+

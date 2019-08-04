@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+.tullisButton {
+  background-color: #b30000; 
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 200px;
+}
+
+.tullisPadding{
+padding-top: 0px;
+padding-right:0px;
+padding-bottom:0px;
+padding-left:0px;
+}
+
+.trimg{
+	object-fit: contain
+}
+
+
+
+
+
+
+
+
