@@ -1,4 +1,4 @@
-package modelTestResult;
+package modelTestMethod;
 
 import java.io.Serializable;
 
