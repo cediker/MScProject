@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.TestResult;
-import modelDAO.testResultDAO;
+import modelTestResult.TestResult;
+import modelTestResult.testResultDAO;
 	
 	 
 	@WebServlet("/getAllTestResults")

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import com.google.gson.Gson;
 
-import model.TestResult;
-import modelDAO.testResultDAO;
+import modelTestResult.TestResult;
+import modelTestResult.testResultDAO;
 
 public class JSONConverter {
 	

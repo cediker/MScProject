@@ -1,4 +1,4 @@
-package modelDAO;
+package modelTestResult;
 
 //imports
 import java.sql.Connection;
@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import model.TestResult;
 
 /**
  * this class is the data access object

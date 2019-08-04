@@ -1,7 +1,6 @@
-package model;
+package modelTestResult;
 
 import java.util.ArrayList;
-import modelDAO.testResultDAO;
 
 public class DatabaseTester {
 public static void main(String[] args) {
