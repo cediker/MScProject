@@ -6,13 +6,11 @@
 	<title>Tullis Russell: Quality Control</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/tullisrussell.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	  <link rel="stylesheet" href="css/tullisrussell.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<script src="scripts/ajaxTestingResults.js"></script>
-	
 	<style>
 		body {
 			font: 20px Montserrat, sans-serif;
@@ -83,7 +81,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="testing.html" style="color:#b30000">Testing</a></li>
+					<li><a href="testing.html">Testing</a></li>
 					<li><a href="productionStandards.html">Production Standards</a></li>
 					<li><a href="analysis.html">Analysis</a></li>
 					<li><a href="testMethod.html">Test Methods</a></li>
@@ -94,30 +92,29 @@
 
 	<!-- First Container -->
 	<div class="container-fluid bg-2">
-		<div class="col-sm-4">
-			<h1 class="margin">Quality Testing</h1>
-		</div>
+		<div class="row">
 
+			<div class="col-sm-4">
+				<h1 class="margin">Administrator Settings</h1>
+			</div>
+		</div>
 	</div>
 
 
 	<!-- Third Container (Grid) -->
+	
 	<div class="container-fluid bg-3 text-center">
-
-		<h3 class="margin">Please select one of the following options...</h3><br>
+		<h2>Add new test method...</h2>
+		<br/>
 		<form id="formBasic1">
-			<input type="text" id="id" name="id"> <br />
-		</form>
-		<div class="row">
-			<span><button id="btn-all-jobs" type="button" class="tullisButton center">All Records</button></span>
-			<span><button type="button" class="tullisButton center">New Job</button></span>
-			<span><button type="button" class="tullisButton center">Resume Job</button></span>
-			<span><button id="btn-by-jobNumber" type="button" class="tullisButton center">View Job</button></span>
-			<span><button type="button" class="tullisButton center">Delete Job</button></span>
+			<p>CPTM Number</p>
+			<input type="text" id="CPTMNumber" name="CPTMNumber">
 			<br />
-		</div>
-
-		<div id="demo"></div>
+			<p>Test Method Name</p><input type="text" id="TestMethodName" name="TestMethodName"> <br />
+			<p>Reporting Unit</p><input type="text" id="ReportingUnit" name="ReportingUnit"> <br />
+			<br/>
+			<button type="button" class="tullisButton center">Submit</button>
+		</form>
 	</div>
 
 	<!-- Footer -->
@@ -128,3 +125,4 @@
 </body>
 
 </html>
+

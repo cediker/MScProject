@@ -115,11 +115,38 @@ public class TestMethodDAO {
 
 
 		public void insertTestMethod(TestMethod tm) {
-
+			String newTestMethodNo = null;
 			openConnection();
+			
+			
+
+			try {
+				String maxTestMethodID = "SELECT MAX(TestMethodID) FROM TestMethod;";
+				// executes the SQL query
+				ResultSet rs1 = stmt.executeQuery(maxTestMethodID);
+				// loop to return SQL result set
+				while (rs1.next()) {
+					// assigns the result of the SQL query to the variable result
+					String result = rs1.getString(1);
+					//removes the prefix TM- with nothing and parses the result to an integer
+					int intData = Integer.parseInt(result.replace("TM-", ""));
+					//increments the integer by 1
+					intData++;
+					//concatenates the prefix TM- with the new integer
+					newTestMethodNo = "TM-" + intData;
+					System.out.println(newTestMethodNo);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
 			// Create select statement
 			try {
-				String selectSQL = "INSERT INTO TestMethod (testMethodId, documentNumber, documentTitle, unit) VALUES ('"
+				String selectSQL = "INSERT INTO TestMethod ("+ newTestMethodNo +", documentNumber, documentTitle, unit) VALUES ('"
 				 + tm.getTestMethodId() + "','" + tm.getDocumentNumber() + "','" + tm.getDocumentTitle() + "','"
 				+ tm.getUnit() + "');";
 				// executes statement
