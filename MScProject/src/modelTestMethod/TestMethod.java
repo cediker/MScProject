@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="TestMethods")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-	public class TestMethods implements Serializable {
+	public class TestMethod implements Serializable {
 	
 		//declares private variables (accessible only within its own class)
 		private String testMethodId;

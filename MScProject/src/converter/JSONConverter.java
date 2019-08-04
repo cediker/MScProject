@@ -5,7 +5,7 @@ import java.util.Iterator;
 import com.google.gson.Gson;
 
 import modelTestResult.TestResult;
-import modelTestResult.testResultDAO;
+import modelTestResult.TestResultDAO;
 
 public class JSONConverter {
 	
@@ -16,7 +16,7 @@ public class JSONConverter {
 			// Creates a new array list object
 			ArrayList<TestResult> allfilms = new ArrayList<>();
 
-			testResultDAO dao = new testResultDAO();
+			TestResultDAO dao = new TestResultDAO();
 			allfilms = dao.getAllTestResults();
 			// Iterate through all test results using toString()
 		

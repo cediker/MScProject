@@ -1,4 +1,4 @@
-package controller;
+package testResultController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelTestResult.TestResult;
-import modelTestResult.testResultDAO;
+import modelTestResult.TestResultDAO;
 	
 	 
 	@WebServlet("/getAllTestResults")
@@ -20,7 +20,7 @@ import modelTestResult.testResultDAO;
 	  public void doGet(HttpServletRequest request,
 			  HttpServletResponse response) throws ServletException, IOException {
 	    //creates a new instance of the TestResultsDAO
-		  testResultDAO TestResultsDAO = new testResultDAO();
+		  TestResultDAO TestResultsDAO = new TestResultDAO();
 		  //creates an empty array list
 		  ArrayList<TestResult> allTestResults = new ArrayList<TestResult>();
 		  

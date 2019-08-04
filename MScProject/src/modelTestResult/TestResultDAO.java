@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  */
 
-public class testResultDAO {
+public class TestResultDAO {
 
 	/**
 	 * this method forms a connection to the database

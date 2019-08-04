@@ -1,4 +1,4 @@
-package controller;
+package testResultController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelTestResult.TestResult;
-import modelTestResult.testResultDAO;
+import modelTestResult.TestResultDAO;
 
 @WebServlet("/getTestResultByJobNumber")
 public class getTestResultByJobNumber extends HttpServlet {
@@ -22,7 +22,7 @@ public class getTestResultByJobNumber extends HttpServlet {
 			  HttpServletResponse response) throws ServletException, IOException {
 		  
 		  //gets parameter jobNumber and assigns the value to the variable jobNumber
-		  testResultDAO testResultDAO = new testResultDAO();
+		  TestResultDAO testResultDAO = new TestResultDAO();
 		  ArrayList<TestResult> testResult = new ArrayList<>();
 		 
 		  int jobNumber = Integer.parseInt(request.getParameter("id"));

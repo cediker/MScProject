@@ -7,7 +7,7 @@ public static void main(String[] args) {
 		
 
 		ArrayList<TestResult> test = new ArrayList<>();
-		testResultDAO dao = new testResultDAO();
+		TestResultDAO dao = new TestResultDAO();
 		
 		
 		test = dao.getAllTestResults();
