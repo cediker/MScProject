@@ -10,9 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
 	 * @author Chrissie Ediker
 	 */
-//maps an XML element
-@XmlRootElement(name="TestMethods")
-@XmlAccessorType(XmlAccessType.FIELD)
 
 	public class TestMethod implements Serializable {
 	
@@ -26,10 +23,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 		 * sets testMethodId
 		 * @param testMethodId allows the user to set the testMethodId of a test
 		 */
-		
 		public void setTestMethodId(String testMethodId) {
-			this.testMethodId = testMethodId;
+			if (testMethodId == null) {
+				this.testMethodId = "-";
+			} else {
+				this.testMethodId = testMethodId;
+			}
 		}
+		
 		/**
 		 * gets current testMethodId
 		 * @return returns testMethodId
@@ -43,7 +44,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 		 */
 		
 		public void setDocumentNumber(String documentNumber) {
-			this.documentNumber = documentNumber;
+			if (documentNumber == null) {
+				this.documentNumber = "-";
+			} else {
+				this.documentNumber = documentNumber;
+			}
 		}
 		/**
 		 * gets current documentNumber
@@ -56,9 +61,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 		 * sets documentTitle
 		 * @param documentTitle allows the user to set the documentTitle a test method
 		 */
-	
 		public void setDocumentTitle(String documentTitle) {
-			this.documentTitle = documentTitle;
+			if (documentTitle == null) {
+				this.documentTitle = "-";
+			} else {
+				this.documentTitle = documentTitle;
+			}
 		}
 		/**
 		 * gets current documentTitle
@@ -68,9 +76,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 			return documentTitle;
 		}
 
+		
 		public void setUnit(String unit) {
-			this.unit = unit;
+			if (unit == null) {
+				this.unit = "-";
+			} else {
+				this.unit = unit;
+			}
 		}
+		
 		/**
 		 * gets current unit
 		 * @return returns unit
