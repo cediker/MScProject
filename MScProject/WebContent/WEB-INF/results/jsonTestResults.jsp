@@ -1,6 +1,5 @@
 <%@ page import = "com.google.gson.Gson"%>
-<%@ page import = "model.TestResult"%>
-<%@ page import = "modelDAO.testResultDAO"%>
+<%@ page import = "modelTestResult.TestResult"%>
 <%@ page import = "java.util.ArrayList"%>
 
 <%

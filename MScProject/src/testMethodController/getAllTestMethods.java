@@ -1,5 +1,4 @@
-package testResultController;
-
+package testMethodController;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -10,28 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelTestResult.TestResult;
-import modelTestResult.TestResultDAO;
+import modelTestMethod.TestMethod;
+import modelTestMethod.TestMethodDAO;
+
+
+
+@WebServlet("/getAllTestMethods")
+public class getAllTestMethods extends HttpServlet{
 	
-	 
-	@WebServlet("/getAllTestResults")
-	public class getAllTestResults extends HttpServlet {
 	  @Override
 	  public void doGet(HttpServletRequest request,
 			  HttpServletResponse response) throws ServletException, IOException {
-	    //creates a new instance of the TestResultsDAO
-		  TestResultDAO TestResultsDAO = new TestResultDAO();
+	    //creates a new instance of the TestMethodsDAO
+		  TestMethodDAO TestMethodsDAO = new TestMethodDAO();
 		  //creates an empty array list
-		  ArrayList<TestResult> allTestResults = new ArrayList<TestResult>();
+		  ArrayList<TestMethod> allTestMethods = new ArrayList<TestMethod>();
 		  
-		  //calls method getAllTestResultss and assigns the result to all TestResultss
-		  allTestResults = TestResultsDAO.getAllTestResults();
-		    request.setAttribute("TestResults", allTestResults);
+		  //calls method getAllTestMethodss and assigns the result to all TestMethodss
+		  allTestMethods = TestMethodsDAO.getAllTestMethods();
+		    request.setAttribute("TestMethods", allTestMethods);
 		    String outputPage;
 		    
 		    
 		     response.setContentType("application/json");
-		     outputPage = "/WEB-INF/results/jsonTestResults.jsp";
+		     outputPage = "/WEB-INF/results/jsonTestMethods.jsp";
 		    
 		    RequestDispatcher dispatcher =
 		      request.getRequestDispatcher(outputPage);
@@ -44,6 +45,5 @@ import modelTestResult.TestResultDAO;
 		      throws ServletException, IOException {
 		    doGet(request, response);
 		  }
-	
 
 }

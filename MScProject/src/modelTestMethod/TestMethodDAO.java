@@ -57,7 +57,7 @@ public class TestMethodDAO {
 				thisTestMethod.setTestMethodId(rs.getString("TestMethodId"));
 				thisTestMethod.setDocumentNumber(rs.getString("DocumentNumber"));
 				thisTestMethod.setDocumentTitle(rs.getString("DocumentTitle"));
-				thisTestMethod.setUnit(rs.getString("Unit"));
+				thisTestMethod.setUnit(rs.getString("Units"));
 			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -76,6 +76,7 @@ public class TestMethodDAO {
 			try {
 				String selectSQL = "select * from TestMethod;";
 				ResultSet rs1 = stmt.executeQuery(selectSQL);
+			
 				// Retrieve the results
 				while (rs1.next()) {
 					oneTestMethod = getNextTestMethod(rs1);
