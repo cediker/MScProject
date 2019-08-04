@@ -15,62 +15,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
  
  <script> 
-
-
- $( function() {
-	    var availableTags = [
-	      "ActionScript",
-	      "AppleScript",
-	      "Asp",
-	      "BASIC",
-	      "C",
-	      "C++",
-	      "Clojure",
-	      "COBOL",
-	      "ColdFusion",
-	      "Erlang",
-	      "Fortran",
-	      "Groovy",
-	      "Haskell",
-	      "Java",
-	      "JavaScript",
-	      "Lisp",
-	      "Perl",
-	      "PHP",
-	      "Python",
-	      "Ruby",
-	      "Scala",
-	      "Scheme"
-	    ];
-	    $( ".tags" ).autocomplete({
-	      source: availableTags
-	    });
-	  } );
-
- $.ajax({  
-     url:"testMethodAutocomplete.html",  
-     method:"GET",  
-     data:'',  
-     success:function(data)  
-     {  
-          console.log(data);  
-          
-          $( ".tags" ).autocomplete({
-    	      source: data
-    	    }); 
-     }  
-});
-
-
-
-
-
-  
+ 
  $(document).ready(function(){  
       var i=1;  
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Test Name" class="form-control name_list" /></td><td><input type="text" name="target[]" placeholder="Target" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="tags" name="name[]" placeholder="Test Name" class="form-control name_list" /></td><td><input type="text" name="target[]" placeholder="Target" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
       });  
       $(document).on('click', '.btn_remove', function(){  
            var button_id = $(this).attr("id");   
