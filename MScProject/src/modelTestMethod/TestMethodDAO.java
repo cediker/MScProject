@@ -146,7 +146,7 @@ public class TestMethodDAO {
 			
 			// Create select statement
 			try {
-				String selectSQL = "INSERT INTO TestMethod (testMethodId, documentNumber, documentTitle, unit) VALUES ('"
+				String selectSQL = "INSERT INTO TestMethod (testMethodId, documentNumber, documentTitle, units) VALUES ('"
 				 + newTestMethodNo + tm.getTestMethodId() + "','" + tm.getDocumentNumber() + "','" + tm.getDocumentTitle() + "','"
 				+ tm.getUnit() + "');";
 				// executes statement
