@@ -120,12 +120,7 @@ public class TestMethodDAO {
 		public void insertTestMethod(TestMethod tm) {
 			String newTestMethodNo = null;
 			openConnection();
-			System.out.println(newTestMethodNo);
-			System.out.println(tm.getDocumentNumber());
-			System.out.println(tm.getDocumentTitle());
-			System.out.println(tm.getUnit());
-			
-
+		
 			try {
 				String maxTestMethodID = "SELECT MAX(TestMethodID) FROM TestMethod;";
 				// executes the SQL query
@@ -140,7 +135,7 @@ public class TestMethodDAO {
 					intData++;
 					//concatenates the prefix TM- with the new integer
 					newTestMethodNo = "TM-" + intData;
-					System.out.println(newTestMethodNo);
+					
 				}
 
 			} catch (SQLException e) {

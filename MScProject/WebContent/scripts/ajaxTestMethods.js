@@ -39,7 +39,6 @@ function getAllTestMethods() {
 		data: testMethod,
 		success: function(result) {
 			$('#demo').text(result);
-			console.log("Im here");
 		}
 	});
 }
