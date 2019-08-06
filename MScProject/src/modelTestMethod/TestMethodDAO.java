@@ -114,10 +114,16 @@ public class TestMethodDAO {
 		}
 
 
+		
+		
+		
 		public void insertTestMethod(TestMethod tm) {
 			String newTestMethodNo = null;
 			openConnection();
-			System.out.println("HI");
+			System.out.println(newTestMethodNo);
+			System.out.println(tm.getDocumentNumber());
+			System.out.println(tm.getDocumentTitle());
+			System.out.println(tm.getUnit());
 			
 
 			try {
@@ -141,14 +147,11 @@ public class TestMethodDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
+				
 			
 			// Create select statement
 			try {
-				String selectSQL = "INSERT INTO TestMethod (testMethodId, documentNumber, documentTitle, units) VALUES ('"
-				 + newTestMethodNo + tm.getTestMethodId() + "','" + tm.getDocumentNumber() + "','" + tm.getDocumentTitle() + "','"
-				+ tm.getUnit() + "');";
+				String selectSQL = "INSERT INTO TestMethod (TestMethodId, DocumentNumber, DocumentTitle, Units) VALUES ('"+ newTestMethodNo +"','" + tm.getDocumentNumber() + "','" + tm.getDocumentTitle() + "','" + tm.getUnit() + "');";
 				// executes statement
 				stmt.executeUpdate(selectSQL);
 				// close statement
