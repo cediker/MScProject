@@ -1,15 +1,25 @@
 $(document).ready(function() {
 });
 
-
+//button reference: btn-test-methods
 $(function() {
 	$('#btn-test-methods').click(function() {
 		getAllTestMethods();
 	});
 });
 
+//add test method
+$(function() {
+	$("#btn-add-testMethod").click(function() {
+		var testMethod = $('#formAddTestMethod').serialize();
+		addTestMethod(testMethod);
+		
+	});
+});
 
 
+
+//method: getAllTestMethods
 function getAllTestMethods() {
 	
 	$.ajax({
@@ -22,8 +32,20 @@ function getAllTestMethods() {
 	}
 
 
+//method: addTestMethod
+	function addTestMethod(testMethod) {
+	$.ajax({
+		url: "addTestMethodServlet?testMethod=",
+		data: testMethod,
+		success: function(result) {
+			$('#demo').text(result);
+			console.log("Im here");
+		}
+	});
+}
 
 
+//method: constructTable
 function constructTable(result, div){
 	var table = '';
 	var div;

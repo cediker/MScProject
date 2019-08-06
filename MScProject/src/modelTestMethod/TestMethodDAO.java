@@ -117,7 +117,7 @@ public class TestMethodDAO {
 		public void insertTestMethod(TestMethod tm) {
 			String newTestMethodNo = null;
 			openConnection();
-			
+			System.out.println("HI");
 			
 
 			try {
@@ -146,8 +146,8 @@ public class TestMethodDAO {
 			
 			// Create select statement
 			try {
-				String selectSQL = "INSERT INTO TestMethod ("+ newTestMethodNo +", documentNumber, documentTitle, unit) VALUES ('"
-				 + tm.getTestMethodId() + "','" + tm.getDocumentNumber() + "','" + tm.getDocumentTitle() + "','"
+				String selectSQL = "INSERT INTO TestMethod (testMethodId, documentNumber, documentTitle, unit) VALUES ('"
+				 + newTestMethodNo + tm.getTestMethodId() + "','" + tm.getDocumentNumber() + "','" + tm.getDocumentTitle() + "','"
 				+ tm.getUnit() + "');";
 				// executes statement
 				stmt.executeUpdate(selectSQL);
@@ -160,6 +160,9 @@ public class TestMethodDAO {
 			}
 		}
 
+		
+		
+		
 		
 		  //this method deletes a test method based on ID
 		public void deleteTestMethod(String testMethodId) {
