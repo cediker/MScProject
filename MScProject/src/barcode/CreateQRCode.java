@@ -22,7 +22,7 @@ import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
 
-public class Create_QR_Code {
+public class CreateQRCode{
     public static void main(String[] args) {
         try {
             String qrCodeData = "Job Number: 512366";
