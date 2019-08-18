@@ -8,38 +8,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/tullisrussell.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
- 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
- 
- <script> 
- 
- $(document).ready(function(){  
-      var i=1;  
-      $('#add').click(function(){  
-           i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="tags" name="name[]" placeholder="Test Name" class="form-control name_list" /></td><td><input type="text" name="target[]" placeholder="Target" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
-      });  
-      $(document).on('click', '.btn_remove', function(){  
-           var button_id = $(this).attr("id");   
-           $('#row'+button_id+'').remove();  
-      });  
-      $('#submit').click(function(){            
-           $.ajax({  
-                url:"name.html",  
-                method:"POST",  
-                data:$('#add_name').serialize(),  
-                success:function(data)  
-                {  
-                     alert(data);  
-                     $('#add_name')[0].reset();  
-                }  
-           });  
-      });  
- }); 
- </script>
+  <script src="scripts/ajaxProductionStandards.js"></script>
+  
   <style>
   body {
     font: 20px Montserrat, sans-serif;
@@ -135,15 +110,16 @@
                 <br />  
                 <h2 align="center">Create Production Standard</h2>  
                 <div class="form-group">  
-                     <form name="add_name" id="add_name">  
+                     <form name="addProductionStandard" id="addProductionStandard">  
                           <div class="table-responsive">  
                                <table class="table table-bordered" id="dynamic_field">  
                                     <tr>  
-                                         <td colspan="2"><input type="text" name="name[]" placeholder="New production standard name" class="form-control name_list" /></td>  
-                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
+										 <td colspan="2"><input type="text" name="description" placeholder="New production standard description" class="form-control name_list" /></td>  
+										 <td><input type="text" name="productionStandardName" placeholder="Production standard code" class="form-control name_list" /></td>  
+                                         <td colspan="2"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
                                     </tr>  
                                </table>  
-                               <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />  
+                               <input type="button" name="submit" id="btn-submit" class="btn btn-info" value="Submit" />  
                           </div>  
                      </form>  
                 </div>  
