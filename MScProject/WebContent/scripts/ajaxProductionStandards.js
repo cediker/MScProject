@@ -9,9 +9,8 @@
 		   $('#dynamic_field').append('<tr id="row'+i+'">\
 		   <td><input type="text" id="autocomplete" name="row['+i+'][test]" placeholder="Test" class="form-control name_list" /></td>\
 		   <td><input type="text" name="row['+i+'][min]" placeholder="Min" class="form-control name_list" /></td>\
-		   <td><input type="text" name="row['+i+'][target]" placeholder="Target" class="form-control name_list" /></td>\
 		   <td><input type="text" name="row['+i+'][max]" placeholder="Max" class="form-control name_list" /></td>\
-		   <td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>\
+		   <td colspan="2"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>\
 		   </tr>');  
       });  
       $(document).on('click', '.btn_remove', function(){  
@@ -38,15 +37,17 @@ $(function() {
 
 
 
-
 //method: addTestMethod
 	function addProductionStandard(testMethod) {
+		
 	$.ajax({
 		url: "productionStandardServlet",
 		data: testMethod,
-		type: "post",
+		dataType: "text",
+		type: "POST",
 		success: function(result) {
-			$('#demo').text(result);
+			console.log(testMethod);
+			
 		}
 	});
 }
