@@ -1,9 +1,8 @@
 package productionStandardController;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelProductionStandard.productionStandard;
+import modelProductionStandard.ProductionStandard;
+import modelProductionStandard.ProductionStandardDAO;
 
 @WebServlet("/productionStandardServlet")
 public class productionStandardServlet extends HttpServlet{
@@ -23,31 +23,41 @@ public class productionStandardServlet extends HttpServlet{
 		 public void doPost(HttpServletRequest request,
 				HttpServletResponse response) throws ServletException, IOException {	 
 			 	
-			 productionStandard pstd = new productionStandard();
-			 pstd.setProductionStandardName(request.getParameter("productionStandardName"));
-			 pstd.setDescription(request.getParameter("description"));
+	
  
 			System.out.println(request.getParameter("productionStandardName"));
 			System.out.println(request.getParameter("description"));
 			
-			ArrayList<HashMap<String, String>> ar = new ArrayList<HashMap<String, String>>();
-			
+
+			String ProductionStandard = null;
+			String min = null;
+			String max = null;
 			
 		for(int i=2; i<21;i++){
-			HashMap<String, String> data = new LinkedHashMap<>();
+			ProductionStandard pstd = new ProductionStandard();
+			pstd.setProductionStandardName(request.getParameter("productionStandardName"));
+			pstd.setDescription(request.getParameter("description"));
+			Date today = Calendar.getInstance().getTime();
+			pstd.setDateCreated(today.toString());
+		 	pstd.setTestMethod(request.getParameter("row["+i+"][test]"));
+			pstd.setMinimum(request.getParameter("row["+i+"][min]"));
+			pstd.setMaximum(request.getParameter("row["+i+"][max]"));
 			
-			String testMethod = request.getParameter("row["+i+"][test]");
-			String min = request.getParameter("row["+i+"][min]");
-			String max = request.getParameter("row["+i+"][max]");
+			//creates instance of ProductionStandardDAO
+			ProductionStandardDAO dao = new ProductionStandardDAO();
+			//calls the method insert ProductionStandard
+			dao.insertProductionStandard(pstd);
 			
-			data.put("test", testMethod);
-			data.put("min", min);
-			data.put("max", max);
 			
-			ar.add(data);
+			ProductionStandard = request.getParameter("row["+i+"][test]");
+			min = request.getParameter("row["+i+"][min]");
+			max = request.getParameter("row["+i+"][max]");
+			System.out.println(ProductionStandard);
+			System.out.println(min);
+			System.out.println(max);
+		
 		}
 			
-			System.out.println(ar);
 		
 			
 		 }

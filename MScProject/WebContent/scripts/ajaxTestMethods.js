@@ -63,7 +63,7 @@ function constructTable(result, div){
 
 	 
 	var lineSpace = "<br />"
-	var title =  "<h1>Job Information</h1>"
-	var headers = "<tr><td>Test Method ID</td><td>Document Number</td><td>Document Title</td><td>Unit</td></tr>";
+	var title =  "<h1>Test Methods</h1>"
+	var headers = "<tr><td><strong>Test Method ID</strong></td><td><strong>Document Number</strong></td><td><strong>Document Title</strong></td><td><strong>Unit</strong></td></tr>";
 	$(div).html('<table width="100%">' + lineSpace + title + lineSpace + headers + table + '</table>');
 }
