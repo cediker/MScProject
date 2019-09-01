@@ -143,14 +143,14 @@ public class ProductionStandardDAO {
 	
 	
 	
-/*	
-	  //this method deletes a test method based on ID
-	public void deleteProductionStandard(String ProductionStandardId) {
+	
+	  //this method deletes a production standard 
+	public void deleteProductionStandard(String ProductionStandard) {
 
 		openConnection();
 		// Create select statement and execute it
 		try {
-			String sql = "DELETE from ProductionStandardId where id = " + ProductionStandardId + ";";
+			String sql = "DELETE from ProductionStandard where ProductionStandardName = '" + ProductionStandard + "';";
 			stmt.executeUpdate(sql);
 			// closes SQL statement
 			stmt.close();
@@ -159,7 +159,7 @@ public class ProductionStandardDAO {
 		} catch (SQLException se) {
 			System.out.println(se);
 		}
-	}*/
+	}
 }
 
 

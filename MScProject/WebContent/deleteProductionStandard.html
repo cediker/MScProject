@@ -8,15 +8,16 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/tullisrussell.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="scripts/ajaxProductionStandards.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-
 
 <style>
 body {
@@ -66,15 +67,8 @@ p {
 .navbar-nav  li a:hover {
 	color: #1abc9c !important;
 }
-
-.leftAlign {
-	text-align: left;
-}
-
-.imageDyn {
-	width: 100%;
-	height: auto;
-	align: right;
+.leftAlign{
+text-align: left;
 }
 </style>
 </head>
@@ -115,6 +109,12 @@ p {
 		</div>
 	</div>
 
+	<!-- <div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input class="tags">
+</div> -->
+
+
 	<!-- Third Container (Grid) -->
 	<div class="container-fluid bg-3 text-center">
 		<h3 class="margin">Please select one of the following options...</h3>
@@ -123,9 +123,7 @@ p {
 		<div class="row">
 			<div class="col-sm-3">
 				<button type="button" class="tullisButton">
-					<a href="productionStandards.html" style="color: #FFFFFF">Add
-						new <br> production standard
-					</a>
+					<a href="productionStandards.html" style="color:#FFFFFF">Add new <br> production standard</a>
 				</button>
 			</div>
 			<div class="col-sm-3">
@@ -135,53 +133,37 @@ p {
 			</div>
 			<div class="col-sm-3">
 				<button type="button" class="tullisButton">
-					<a href="viewProductionStandard.html" style="color: #FFFFFF">View
-						<br> production standard
-					</a>
+					<a href="viewProductionStandard.html" style="color:#FFFFFF">View <br> production standard</a>
 				</button>
 			</div>
 			<div class="col-sm-3">
 				<button type="button" class="tullisButton">
-					<a href="deleteProductionStandard.html" style="color: #FFFFFF">Delete
-						<br> production standard
-					</a>
+					<a href="deleteProductionStandard.html" style="color:#FFFFFF">Delete <br> production standard</a>
 				</button>
 			</div>
 		</div>
 
 		<div class="container">
 			<br /> <br />
-			<h2 align="center">View Production Standard</h2>
-			<form id="view-prod-std">
-				<table>
-					<tr>
-						<td>Production Standard:</td>
-
-						<td><input type="text" name="productionStandard"></td>
-						</td>
-
-						<td>
-							<button id=btn-getPrdstd-byPrdStd type="button"
-								class="tullisButton center">Proceed >></button>
-						</td>
-					</tr>
-				</table>
-
-				<div>
-				<br>
-				<br>
-				<div id="a4print">
-					<div class="row">
-						<div id="info" class="col-md-4"></div>
-						<div class="col-md-4"></div>
-						<div class="col-md-4">
-							<img class="imageDyn" id="imageDyn" src="images/TullisBanner.png"
-								alt="Tullis Russell" hidden="hidden">
-						</div>
-					</div>
-					<div id="demo"></div>
-				</div>
-				<button id=btnPrint type="button" class="tullisButton center" hidden="hidden">Print</button>
+			<h2 align="center">Delete Production Standard</h2>
+			<form id="delete-prod-std">
+			<table>
+			<tr>
+			<td>
+			Production Standard: 
+			</td>
+			
+			<td>
+			<input type="text" name="productionStandard"></td>
+			</td>
+			
+			<td>
+			<button id=btn-deletePrdstd-byPrdStd type="button" class="tullisButton center">Proceed >></button>
+			</td>
+			</tr>
+			</table>
+			
+			<div id="demo"></div>
 			</form>
 		</div>
 	</div>
@@ -192,7 +174,7 @@ p {
 			Company Website: <a href="http://www.tullisrussell.com/">www.tullisrussell.com</a>
 		</p>
 	</footer>
-		
+
 </body>
 </html>
 

@@ -1,4 +1,4 @@
- $(document).ready(function() {
+$(document).ready(function() {
 
  
 }); 
@@ -12,7 +12,9 @@
 		   <td><input type="text" name="row['+i+'][max]" placeholder="Max" class="form-control name_list" /></td>\
 		   <td colspan="2"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>\
 		   </tr>');  
-      });  
+      }); 
+      
+      
       $(document).on('click', '.btn_remove', function(){  
            var button_id = $(this).attr("id");   
            $('#row'+button_id+'').remove();  
@@ -30,9 +32,11 @@ $(function() {
 
 
 
-//add test method
+//view production standard
 $(function() {
 	$("#btn-getPrdstd-byPrdStd").click(function() {
+		$("#imageDyn").show();
+		$("#btnPrint").show();
 		var prodStd = $('#view-prod-std').serialize();
 		viewProdStd(prodStd);
 		
@@ -40,6 +44,14 @@ $(function() {
 });
 
 
+//delete production standard
+$(function() {
+	$("#btn-deletePrdstd-byPrdStd").click(function() {
+		var prodStd = $('#delete-prod-std').serialize();
+		deleteProdStd(prodStd);
+		
+	});
+});
 
 
 
@@ -70,6 +82,18 @@ function viewProdStd(prodStd) {
 					}
 		});
 	}
+
+
+function deleteProdStd(prodStd) {
+	$.ajax({
+				url : "deleteProductionStandard",
+				data : prodStd,
+				success : function(result){
+				var div = "#demo";
+				}
+	});
+}
+
 
 
 
@@ -115,4 +139,23 @@ function constructTable(result, div){
 
 
 
+var cache_width = $('#a4print').width(); 
+var a4 = [595.28, 841.89];
+
+
+$(document).on("click", '#btnPrint', function () {
+   
+    $("#a4print").width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+
+}); 
+
+
+
   });
+  
+  
+  
+  
+  
+  
+
