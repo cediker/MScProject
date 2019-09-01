@@ -76,24 +76,38 @@ function viewProdStd(prodStd) {
 function constructTable(result, div){
 	var table = '';
 	var div;
+	var title;
+	var date;
 	console.log(result);
 	
 		var rs = result;
-		$.each(rs, function(key, rs) {
-
+		var title;
+		var description;
+			
+		
+		$.each(rs, function(key, rs) { 
+			
+			title = null;
+			title = rs.productionStandardName;
+			date = null;
+			date = rs.dateCreated;
+			description = null;
+			description = rs.description;
 			table += '<tr>';
-			table += '<td>' + rs.productionStandardName + '</td>';
 			table += '<td>' + rs.testMethod + '</td>';
-			table += '<td>' + rs.documentTitle + '</td>';
+			table += '<td>' + rs.description + '</td>';
 			table += '<td>' + rs.minimum + '</td>';		
+			table += '<td>' + rs.maximum + '</td>';
 			table += '</tr>';
+			
 		});
 
-	 
+	var title1 =  "<h4 class=leftAlign>Production Standard Code: "+ title +"</h4>"
+	var description1 = "<h2>"+ description +"</h2>"
 	var lineSpace = "<br />"
-	var title =  "<h1>Test Methods</h1>"
-	var headers = "<tr><td><strong>Test Method ID</strong></td><td><strong>Document Number</strong></td><td><strong>Document Title</strong></td><td><strong>Unit</strong></td></tr>";
-	$(div).html('<table width="100%">' + lineSpace + title + lineSpace + headers + table + '</table>');
+	var headers = "<tr><td><strong>Test Method</strong></td><td><strong>Description</strong></td><td><strong>Minimum Value</strong></td><td><strong>Maximum Value</strong></td></tr>";
+	$(div).html('<table width="100%">' + lineSpace + title1 + '</br>' + description1 + lineSpace + headers + table + '</table>'+'<br>'+'<p>Date Created: </p>'+date);
+	
 }
 
 
