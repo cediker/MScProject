@@ -25,7 +25,7 @@ public class getAllTestMethods extends HttpServlet{
 		  //creates an empty array list
 		  ArrayList<TestMethod> allTestMethods = new ArrayList<TestMethod>();
 		  
-		  //calls method getAllTestMethodss and assigns the result to all TestMethodss
+		  //calls method getAllTestMethods and assigns the result to all TestMethods
 		  allTestMethods = TestMethodsDAO.getAllTestMethods();
 		    request.setAttribute("TestMethods", allTestMethods);
 		    String outputPage;

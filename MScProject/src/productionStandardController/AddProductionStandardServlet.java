@@ -14,7 +14,7 @@ import modelProductionStandard.ProductionStandard;
 import modelProductionStandard.ProductionStandardDAO;
 
 @WebServlet("/productionStandardServlet")
-public class productionStandardServlet extends HttpServlet{
+public class AddProductionStandardServlet extends HttpServlet{
 	@Override 
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) 
 	throws IOException,ServletException{
@@ -28,8 +28,8 @@ public class productionStandardServlet extends HttpServlet{
 			System.out.println(request.getParameter("productionStandardName"));
 			System.out.println(request.getParameter("description"));
 			
-
-			String ProductionStandard = null;
+			
+			String TestMethod = null;
 			String min = null;
 			String max = null;
 			
@@ -47,15 +47,6 @@ public class productionStandardServlet extends HttpServlet{
 			ProductionStandardDAO dao = new ProductionStandardDAO();
 			//calls the method insert ProductionStandard
 			dao.insertProductionStandard(pstd);
-			
-			
-			ProductionStandard = request.getParameter("row["+i+"][test]");
-			min = request.getParameter("row["+i+"][min]");
-			max = request.getParameter("row["+i+"][max]");
-			System.out.println(ProductionStandard);
-			System.out.println(min);
-			System.out.println(max);
-		
 		}
 			
 		

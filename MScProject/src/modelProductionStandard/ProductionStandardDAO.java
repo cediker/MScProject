@@ -52,11 +52,11 @@ public class ProductionStandardDAO {
 		ProductionStandard thisProductionStandard = null;
 		try {
 			thisProductionStandard = new ProductionStandard();
-			thisProductionStandard.setProductionStandardID(rs.getString("productionStandardID"));
+			thisProductionStandard.setProductionStandardID(rs.getString("ID"));
 			thisProductionStandard.setDateCreated(rs.getString("dateCreated"));
 			thisProductionStandard.setCreator(rs.getString("creator"));
 			thisProductionStandard.setProductionStandardName(rs.getString("productionStandardName"));
-			thisProductionStandard.setDescription(rs.getString("description"));
+			thisProductionStandard.setDescription(rs.getString("ProductionStandardDescription"));
 			thisProductionStandard.setComment(rs.getString("comment"));
 			thisProductionStandard.setTestMethod(rs.getString("testMethod"));
 			thisProductionStandard.setMinimum(rs.getString("minimum"));
@@ -94,14 +94,17 @@ public class ProductionStandardDAO {
 		return allProductionStandards;
 	}
 	
-/*	public ArrayList<ProductionStandard> getProductionStandardByJobNumber(int jobNumber) {
-		ArrayList<ProductionStandard> allProductionStandards = new ArrayList<ProductionStandard>();
-		openConnection();
+	
+	
+	
+	
+	public ArrayList<ProductionStandard> getProductionStandardByName(String productionStandard) {
 		
+		openConnection();
+		ArrayList<ProductionStandard> allProductionStandards = new ArrayList<>();
 		// Create select statement and execute it
 		try {
-			
-			String selectSQL = "select * from ProductionStandard where DocumentTitle Like " + "%"+ jobNumber + "%;";
+			String selectSQL = "SELECT * FROM ProductionStandard WHERE ProductionStandardName = '" + productionStandard + "';";
 			ResultSet rs1 = stmt.executeQuery(selectSQL);
 			// Retrieve the results
 			while (rs1.next()) {
@@ -116,7 +119,7 @@ public class ProductionStandardDAO {
 		return allProductionStandards;
 	}
 
-*/
+
 	
 	
 	

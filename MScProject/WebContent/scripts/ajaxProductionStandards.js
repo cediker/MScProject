@@ -19,16 +19,22 @@
 	  }); 
 
 
-
-
-
-
-
 //add test method
 $(function() {
 	$("#btn-submit").click(function() {
 		var testMethod = $('#addProductionStandard').serialize();
 		addProductionStandard(testMethod);
+		
+	});
+});
+
+
+
+//add test method
+$(function() {
+	$("#btn-getPrdstd-byPrdStd").click(function() {
+		var prodStd = $('#view-prod-std').serialize();
+		viewProdStd(prodStd);
 		
 	});
 });
@@ -51,4 +57,48 @@ $(function() {
 		}
 	});
 }
- });
+	
+	
+
+function viewProdStd(prodStd) {
+		$.ajax({
+					url : "viewProductionStandard",
+					data : prodStd,
+					success : function(result){
+					var div = "#demo";
+					constructTable(result, div);
+					}
+		});
+	}
+
+
+
+function constructTable(result, div){
+	var table = '';
+	var div;
+	console.log(result);
+	
+		var rs = result;
+		$.each(rs, function(key, rs) {
+
+			table += '<tr>';
+			table += '<td>' + rs.productionStandardName + '</td>';
+			table += '<td>' + rs.testMethod + '</td>';
+			table += '<td>' + rs.documentTitle + '</td>';
+			table += '<td>' + rs.minimum + '</td>';		
+			table += '</tr>';
+		});
+
+	 
+	var lineSpace = "<br />"
+	var title =  "<h1>Test Methods</h1>"
+	var headers = "<tr><td><strong>Test Method ID</strong></td><td><strong>Document Number</strong></td><td><strong>Document Title</strong></td><td><strong>Unit</strong></td></tr>";
+	$(div).html('<table width="100%">' + lineSpace + title + lineSpace + headers + table + '</table>');
+}
+
+
+
+
+
+
+  });
