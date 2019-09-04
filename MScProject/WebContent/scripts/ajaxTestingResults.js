@@ -8,11 +8,35 @@ $(function() {
 	});
 });
 
+
+//view production standard
+$(function() {
+	$("#btn-test-prodstd").click(function() {
+		var prodStd = $('#prod-std').serialize();
+		viewProdStd(prodStd);
+		
+	});
+});
+
+
+
 $(function() {
 	$('#btn-by-jobNumber').click(function() {
 		getTestResultByJobNumber();
 	});
 });
+
+
+function viewProdStd(prodStd) {
+	$.ajax({
+				url : "viewProductionStandard",
+				data : prodStd,
+				success : function(result){
+				var div = "#demo";
+				constructTable(result, div);
+				}
+	});
+}
 
 
 function getAllTestResults() {
@@ -49,21 +73,18 @@ function constructTable(result, div){
 		$.each(rs, function(key, rs) {
 
 			table += '<tr>';
-			table += '<td>' + rs.id + '</td>';
-			table += '<td>' + rs.jobNumber + '</td>';
-			table += '<td>' + rs.roll + '</td>';
-			table += '<td>' + rs.productionStandard + '</td>';
-			table += '<td>' + rs.grammageBasePaper + '</td>';
-			//table += '<td>' + rs.grammageRelease + '</td>';
-			//table += '<td>' + rs.coatWeightAdhesive + '</td>';
-			table += '<td>' + rs.coatWeightCoating + '</td>';
+			table += '<td>' + rs.testMethod + '</td>';
+			table += '<td>' + rs.minimum + '</td>';
+			table += '<td>' + rs.maximum + '</td>';
+			table += '<td class=editable></td>';
+			
 			
 			table += '</tr>';
 		});
 
 	 
 	var lineSpace = "<br />"
-	var title =  "<h1>Job Information</h1>"
-	var headers = "<tr><td>ID</td><td>JOB NUMBER</td><td>ROLL</td><td>PRODUCTION STANDARD</td><td>GRAMMAGE BASE PAPER</td><td>COAT WEIGHT COATING</td></tr>";
+	var title =  "<h1>Production Testing</h1>"
+	var headers = "<tr><td>Test Method</td><td>Minimum</td><td>Maximum</td></tr>";
 	$(div).html('<table width="100%">' + lineSpace + title + lineSpace + headers + table + '</table>');
 }

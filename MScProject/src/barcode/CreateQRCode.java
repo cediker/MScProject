@@ -23,9 +23,9 @@ import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
 
 public class CreateQRCode{
-    public static void main(String[] args) {
+    public static void createQRCode(String qrCodeData) {
         try {
-            String qrCodeData = "Name: Jordan Clough";
+     
             String filePath = "/Users/chrissieediker/Documents/QRCode/JobNumber.png";
             String charset = "ISO-8859-1"; // or "UTF-8"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();

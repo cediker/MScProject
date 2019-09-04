@@ -3,11 +3,30 @@ $(document).ready(function() {
  
 }); 
   $(document).ready(function(){  
+	  
+	  let testMethodData = [];
+	  getTestMethods(function(data){
+		  testMethodData = data;
+		  
+	  });
+	    
+	  
       var i=1;  
       $('#add').click(function(){  
-           i++;  
+    	  
+    	  i++;
+    	  
+    	  let options = '';
+    	  testMethodData.forEach(function(row){
+    		  options += "<option value='"+ row.documentTitle +"'>" + row.documentTitle + "</option>";
+		  });
+    	  
+    	  let dropdown = "<select name='row["+i+"][test]'>" +options+ "</select>";
+    	  
+            
+           
 		   $('#dynamic_field').append('<tr id="row'+i+'">\
-		   <td><input type="text" id="autocomplete" name="row['+i+'][test]" placeholder="Test" class="form-control name_list" /></td>\
+		   <td>'+dropdown+'</td>\
 		   <td><input type="text" name="row['+i+'][min]" placeholder="Min" class="form-control name_list" /></td>\
 		   <td><input type="text" name="row['+i+'][max]" placeholder="Max" class="form-control name_list" /></td>\
 		   <td colspan="2"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>\
@@ -65,10 +84,21 @@ $(function() {
 		type: "POST",
 		success: function(result) {
 			console.log(testMethod);
-			
 		}
 	});
 }
+	
+	//method: getAllTestMethods
+function getTestMethods(callback) {
+		
+		$.ajax({
+					url : "getAllTestMethods",
+					success:function(result){
+						return callback(result)
+					}
+		});
+				
+		}
 	
 	
 

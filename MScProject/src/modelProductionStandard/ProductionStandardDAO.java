@@ -91,6 +91,7 @@ public class ProductionStandardDAO {
 			System.out.println(se);
 		}
 		
+		System.out.println(allProductionStandards);
 		return allProductionStandards;
 	}
 	

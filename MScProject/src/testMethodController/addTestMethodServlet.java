@@ -42,10 +42,7 @@ public class addTestMethodServlet extends HttpServlet {
 			 System.out.println(request.getParameter("unit"));
 			 
 			 
-			 
 			dao.insertTestMethod(newTestMethod);
-			
-			response.getWriter().println("TestMethod added!");
 		 
 	  }
 }
