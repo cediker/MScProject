@@ -1,14 +1,79 @@
 $(document).ready(function() {
-});
+
+ 
+}); 
+  $(document).ready(function(){  
+	  
+  });	 
+  
+  
+  function buildpstd(result){
+	  console.log(result);
+	  
+      var i=1;  
+      	  
+    	  i++;
+    	  let options = '';
+    	  let test ='';
+    	
+    	  result.forEach(function(row){
+    		  testValue = "<p id=tullisFormalText value='"+ row.testMethod +"'>" + row.testMethod + "</p>";
+    		  test = "<p name='row["+i+"][test]'>" +testValue+ "</p>";
+    		  
+    		  minValue = "<p id=tullisFormalText value='"+ row.minimum +"'>" + row.minimum + "</p>";
+    		  min = "<p name='row["+i+"][test]'>" +minValue+ "</p>";
+    		  
+    		  maxValue = "<p id=tullisFormalText value='"+ row.maximum +"'>" + row.maximum + "</p>";
+    		  max = "<p name='row["+i+"][test]'>" +maxValue+ "</p>";
+    		  
+    		   $('#dynamic_field').append('<tr id="row'+i+'">\
+    				   <td id=tullisFormalText>'+test+'</td>\
+    				   <td id=tullisFormalText>'+min+'</td>\
+    				   <td id=tullisFormalText>'+max+'</td>\
+    				   <td id=tullisFormalText><input type="text" placeholder="result"/></td>\
+    				   </tr>'); 
+		  });
+    		
+    	    
+           
+		 
+      
+  }
+	  
 
 
+//view production standard
 $(function() {
-	$('#btn-all-jobs').click(function() {
-		getAllTestResults();
+	$("#btn-test-prodstd").click(function() {
+		var prodStd = $('#prod-std').serialize();
+		viewProdStd(prodStd);
+		
 	});
 });
 
 
+
+function viewProdStd(prodStd) {
+	$.ajax({
+				url : "viewProductionStandard",
+				data : prodStd,
+				success : function(result){
+				var div = "#demo";
+				buildpstd(result);
+				}
+	});
+}
+
+
+  
+  
+  
+
+
+
+
+
+/*
 //view production standard
 $(function() {
 	$("#btn-test-prodstd").click(function() {
@@ -87,4 +152,5 @@ function constructTable(result, div){
 	var title =  "<h1>Production Testing</h1>"
 	var headers = "<tr><td>Test Method</td><td>Minimum</td><td>Maximum</td></tr>";
 	$(div).html('<table width="100%">' + lineSpace + title + lineSpace + headers + table + '</table>');
-}
+}*/
+  

@@ -114,6 +114,19 @@ function viewProdStd(prodStd) {
 	}
 
 
+//method: getAllTestMethods
+function getTestMethods(callback) {
+		
+		$.ajax({
+					url : "getAllTestMethods",
+					success:function(result){
+						return callback(result)
+					}
+		});
+				
+		}
+
+
 function deleteProdStd(prodStd) {
 	$.ajax({
 				url : "deleteProductionStandard",
