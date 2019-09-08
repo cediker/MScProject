@@ -24,13 +24,12 @@ public class viewProductionStandardServlet extends HttpServlet {
 			  HttpServletResponse response) throws ServletException, IOException {
 		
 		  String productionStandard = request.getParameter("productionStandard");
-		  System.out.println(productionStandard);
+		  
 		 
 		  ProductionStandardDAO ProductionStandardsDAO = new ProductionStandardDAO();
 		  ArrayList<ProductionStandard> allProductionStandards = new ArrayList<>();
 		  
 		  allProductionStandards = ProductionStandardsDAO.getProductionStandardByName(productionStandard);
-		  System.out.println("Servlet"+allProductionStandards);
 		  
 		  request.setAttribute("ProductionStandards", allProductionStandards);
 		  

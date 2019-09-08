@@ -3,6 +3,7 @@ package productionStandardController;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,7 +29,14 @@ public class AddProductionStandardServlet extends HttpServlet{
 			
 			CreateQRCode.createQRCode(request.getParameter("productionStandardName"));
 			 
-			 
+			
+			Enumeration<String> params = request.getParameterNames(); 
+			while(params.hasMoreElements()){
+			 String paramName = params.nextElement();
+			 System.out.println("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));
+			}
+			
+			
 			int i = 2;
 			while(request.getParameter("row["+i+"][test]")!= null){
 				ProductionStandard pstd = new ProductionStandard();

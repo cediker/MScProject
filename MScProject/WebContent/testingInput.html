@@ -3,68 +3,68 @@
 
 <head>
 
-	<title>Tullis Russell: Quality Control</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/tullisrussell.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<script src="scripts/ajaxTestingResults.js"></script>
-	
-	<style>
-		body {
-			font: 20px Montserrat, sans-serif;
-			line-height: 1.8;
-			color: #f5f6f7;
-		}
+<title>Tullis Russell: Quality Control</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/tullisrussell.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="scripts/ajaxTestingResults.js"></script>
 
-		p {
-			font-size: 16px;
-		}
+<style>
+body {
+	font: 20px Montserrat, sans-serif;
+	line-height: 1.8;
+	color: #f5f6f7;
+}
 
-		.margin {
-			margin-bottom: 45px;
-		}
+p {
+	font-size: 16px;
+}
 
-		.bg-2 {
-			background-color: #474e5d;
-			/* Dark Blue */
-			color: #ffffff;
-		}
+.margin {
+	margin-bottom: 45px;
+}
 
-		.bg-3 {
-			background-color: #ffffff;
-			/* White */
-			color: #555555;
-		}
+.bg-2 {
+	background-color: #474e5d;
+	/* Dark Blue */
+	color: #ffffff;
+}
 
-		.bg-4 {
-			background-color: #2f2f2f;
-			/* Black Gray */
-			color: #fff;
-		}
+.bg-3 {
+	background-color: #ffffff;
+	/* White */
+	color: #555555;
+}
 
-		.container-fluid {
-			padding-top: 70px;
-			padding-bottom: 70px;
-		}
+.bg-4 {
+	background-color: #2f2f2f;
+	/* Black Gray */
+	color: #fff;
+}
 
-		.navbar {
-			padding-top: 15px;
-			padding-bottom: 15px;
-			border: 0;
-			border-radius: 0;
-			margin-bottom: 0;
-			font-size: 12px;
-			letter-spacing: 5px;
-		}
+.container-fluid {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
 
-		.navbar-nav li a:hover {
-			color: #1abc9c !important;
-		}
-	</style>
+.navbar {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+	color: #1abc9c !important;
+}
+</style>
 </head>
 
 <body>
@@ -73,17 +73,18 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
-				<img src="images/TullisLogo.png" style="display:inline" alt="Tullis Russell Logo" width="50"
-					height="50"><a class="navbar-brand" href="index.html">Tullis Russell</a>
+				<img src="images/TullisLogo.png" style="display: inline"
+					alt="Tullis Russell Logo" width="50" height="50"><a
+					class="navbar-brand" href="index.html">Tullis Russell</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="testing.html" style="color:#b30000">Testing</a></li>
+					<li><a href="testing.html" style="color: #b30000">Testing</a></li>
 					<li><a href="productionStandards.html">Production Standards</a></li>
 					<li><a href="analysis.html">Analysis</a></li>
 					<li><a href="testMethod.html">Test Methods</a></li>
@@ -102,60 +103,55 @@
 
 	<!-- Third Container (Grid) -->
 	<div class="container-fluid bg-3">
-	<table>
-	<tr>
-	<td>Enter Production Standard: </td>
-	<form id="prod-std">
-	<td><input type="text" name="productionStandard"></td>
-	</form>
-	</tr>
-	<tr>
-	<td>Enter Job Number: </td>
-	<td><input type="text" name="jobNumber"></td>
-	</tr>
-	<tr>
-	<td>Enter Roll: </td>
-	<td><input type="text" name="roll"></td>
-	<td>
-	<button type="button" class="tullisButton center" id="btn-test-prodstd">Proceed >></button>
-	</td>
-	</tr>
-	</table>
-	<br/>
-	<div id="demo"></div>
-		</div>
 		
-		                <div class="form-group">  
-                     <form name="addProductionStandard" id="addProductionStandard">  
-                          <div class="table-responsive">  
-                               <table class="table table-bordered" id="dynamic_field">  
-                                   
-                                    <tr>  
-										 <td colspan="2"><input type="text" name="description" placeholder="New production standard description" class="form-control name_list" /></td>  
-										 <td><input type="text" name="productionStandardName" placeholder="Production standard code" class="form-control name_list" /></td>       
-                                    </tr> 
-                                    <th>
-                                    <td id=tullisFormalText>
-                                    MINIMUM
-                                    </td>
-                                    <td id=tullisFormalText>
-                                    MAXIMUM
-                                    </td>
-                                    <td id=tullisFormalText>
-                                    TEST VALUE
-                                    </td>
-                                    </th> 
-                               </table>  
-                               <input type="button" name="submit" id="btn-submit" class="btn btn-info" value="Submit" />  
-                          </div>  
-                     </form>  
-                </div>  
-           </div>  
-           </div>
+			<table id="pstd">
+				<tr class="productionStandardS">
+					<td>Enter Production Standard:</td>
+					<form id="prod-std">
+				<!-- <td><input type="text" name="productionStandard"></td> -->	
+					</form>
+				</tr>
+				<tr>
+					<td>Enter Job Number:</td>
+					<td><input type="text" name="jobNumber" id="jobNumber"></td>
+				</tr>
+				<tr>
+					<td>Enter Roll:</td>
+					<td><input type="text" name="roll" id="roll"></td>
+					<td>
+						<button type="button" class="tullisButton center"
+							id="btn-test-prodstd">Proceed >></button>
+					</td>
+				</tr>
+			</table>
+			<br />
+
+			<div class="form-group">
+				<form name="addProductionStandard" id="addTestResult">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dynamic_field">
+							<th>
+							<td id=tullisFormalText>MINIMUM</td>
+							<td id=tullisFormalText>MAXIMUM</td>
+							<td id=tullisFormalText>TEST VALUE</td>
+							</th>
+						</table>
+						<input type="button" name="submit" id="btn-submit"
+							class="btn btn-info" value="Submit" />
+					</div>
+				</form>
+			</div>
+			
+	</div>
+
+
+
 
 	<!-- Footer -->
 	<footer class="container-fluid bg-4 text-center">
-		<p>Company Website: <a href="http://www.tullisrussell.com/">www.tullisrussell.com</a></p>
+		<p>
+			Company Website: <a href="http://www.tullisrussell.com/">www.tullisrussell.com</a>
+		</p>
 	</footer>
 
 </body>

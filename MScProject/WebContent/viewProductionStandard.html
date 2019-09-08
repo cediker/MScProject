@@ -13,12 +13,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 <script src="scripts/ajaxProductionStandards.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 
-
 <style>
+p.error{
+	color:red;
+}
 body {
 	font: 20px Montserrat, sans-serif;
 	line-height: 1.8;
@@ -157,11 +161,12 @@ p {
 					<tr>
 						<td>Production Standard:</td>
 
-						<td><input type="text" name="productionStandard"></td>
+						<td>
+							<input type="text" name="productionStandard" required/></td>
 						</td>
 
 						<td>
-							<button id=btn-getPrdstd-byPrdStd type="button"
+							<button id="btn-getPrdstd-byPrdStd" type="submit"
 								class="tullisButton center">Proceed >></button>
 						</td>
 					</tr>

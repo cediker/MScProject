@@ -6,8 +6,7 @@ $(document).ready(function() {
 	  
 	  let testMethodData = [];
 	  getTestMethods(function(data){
-		  testMethodData = data;
-		  
+		  testMethodData = data; 
 	  });
 	    
 	  
@@ -53,13 +52,23 @@ $(function() {
 
 //view production standard
 $(function() {
-	$("#btn-getPrdstd-byPrdStd").click(function() {
-		$("#imageDyn").show();
-		$("#btnPrint").show();
-		var prodStd = $('#view-prod-std').serialize();
-		viewProdStd(prodStd);
-		
-	});
+	$('#view-prod-std').validate({
+	    submitHandler: function(form) {
+	    	$("#imageDyn").show();
+			$("#btnPrint").show();
+			var prodStd = $('#view-prod-std').serialize();
+			viewProdStd(prodStd);
+			$.notify("It worked", "success");
+			return false;
+	    }
+	    
+	   });
+	
+
+	
+	
+	
+	
 });
 
 
@@ -83,7 +92,7 @@ $(function() {
 		dataType: "text",
 		type: "POST",
 		success: function(result) {
-			console.log(testMethod);
+			$.notify("Production Standard Added.", "success");
 		}
 	});
 }
@@ -136,50 +145,6 @@ function deleteProdStd(prodStd) {
 				}
 	});
 }
-
-
-
-
-function constructTable(result, div){
-	var table = '';
-	var div;
-	var title;
-	var date;
-	console.log(result);
-	
-		var rs = result;
-		var title;
-		var description;
-			
-		
-		$.each(rs, function(key, rs) { 
-			
-			title = null;
-			title = rs.productionStandardName;
-			date = null;
-			date = rs.dateCreated;
-			description = null;
-			description = rs.description;
-			table += '<tr>';
-			table += '<td>' + rs.testMethod + '</td>';
-			table += '<td>' + rs.description + '</td>';
-			table += '<td>' + rs.minimum + '</td>';		
-			table += '<td>' + rs.maximum + '</td>';
-			table += '</tr>';
-			
-		});
-
-	var title1 =  "<h4 class=leftAlign>Production Standard Code: "+ title +"</h4>"
-	var description1 = "<h2>"+ description +"</h2>"
-	var lineSpace = "<br />"
-	var headers = "<tr><td><strong>Test Method</strong></td><td><strong>Description</strong></td><td><strong>Minimum Value</strong></td><td><strong>Maximum Value</strong></td></tr>";
-	$(div).html('<table width="100%">' + lineSpace + title1 + '</br>' + description1 + lineSpace + headers + table + '</table>'+'<br>'+'<p>Date Created: </p>'+date);
-	
-}
-
-
-
-
 
 
 var cache_width = $('#a4print').width(); 
