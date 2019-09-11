@@ -2,36 +2,55 @@
 $(document).ready(function() {
 	var ctx = document.getElementById('myChart');
 	var myChart = new Chart(ctx, {
-	    type: 'bar',
+	    type: 'line',
 	    data: {
-	        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+	        labels: ['512111', '514333', '518444', '513222', '518111', '51865'],
 	        datasets: [{
-	            label: '# of Votes',
-	            data: [12, 19, 3, 5, 2, 3],
+	            label: 'Grammage',
+	            data: [79.8, 76.9, 80, 81.5, 80.9, 80],
 	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(75, 192, 192, 0.2)',
-	                'rgba(153, 102, 255, 0.2)',
-	                'rgba(255, 159, 64, 0.2)'
+	                'rgba(32, 37, 252, 0.2)'
 	            ],
 	            borderColor: [
-	                'rgba(255, 99, 132, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(75, 192, 192, 1)',
-	                'rgba(153, 102, 255, 1)',
-	                'rgba(255, 159, 64, 1)'
+	                'rgba(32, 37, 252, 1)'
+	        ] ,
+	        fill:[
+            	false],
+            	borderWidth: 2
+            	}, 
+	            {label: 'Grammage Upper Limit',
+	            data: [82, 82, 82, 82, 82, 82],
+	            backgroundColor: [
+	                'rgba(161, 161, 161, 0.2)',
+	           
 	            ],
-	            borderWidth: 1
+	            borderColor: [
+	                'rgba(161, 161, 161, 1)',
+	        
+	            ],
+	            fill:[
+	            	false],
+	            	borderWidth: 2
+	            
+	            }, 
+	            {label: 'Grammage Lower Limit',
+	            data: [78, 78, 78, 78, 78, 78],
+	            backgroundColor: [
+	                'rgba(15, 99, 132, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(15, 99, 132, 1)'
+	            ],
+	            fill:[
+	            	false],
+	            borderWidth: 2
 	        }]
 	    },
 	    options: {
 	        scales: {
 	            yAxes: [{
 	                ticks: {
-	                    beginAtZero: true
+	                    beginAtZero: false
 	                }
 	            }]
 	        }

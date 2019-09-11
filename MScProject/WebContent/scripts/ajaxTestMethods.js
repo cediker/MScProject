@@ -18,7 +18,6 @@ $(function() {
 });
 
 
-
 //method: getAllTestMethods
 function getAllTestMethods() {
 	

@@ -1,7 +1,11 @@
 package modelProductionStandard;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @author chrissieediker
+ *
+ */
 public class ProductionStandard implements Serializable {
 	
 	//declares private variables (accessible only within its own class)
