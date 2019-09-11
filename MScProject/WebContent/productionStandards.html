@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/tullisrussell.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -109,12 +110,12 @@
                           <div class="table-responsive">  
                                <table class="table table-bordered" id="dynamic_field">  
                                     <tr>  
-										 <td colspan="2"><input type="text" name="description" placeholder="New production standard description" class="form-control name_list" /></td>  
-										 <td><input type="text" name="productionStandardName" placeholder="Production standard code" class="form-control name_list" /></td>  
+										 <td colspan="2"><input type="text" name="description" placeholder="New production standard description" class="form-control name_list" required/></td>  
+										 <td><input type="text" name="productionStandardName" placeholder="Production standard code" class="form-control name_list" required/></td>  
                                          <td colspan="2"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
                                     </tr>  
                                </table>  
-                               <input type="button" name="submit" id="btn-submit" class="btn btn-info" value="Submit" />  
+                               <input type="submit" name="submit" id="btn-submit" class="btn btn-info" value="Submit" />  
                           </div>  
                      </form>  
                 </div>  

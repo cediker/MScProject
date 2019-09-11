@@ -22,6 +22,7 @@ public class DeleteProductionStandardServlet extends HttpServlet {
 	  @Override
 	  public void doGet(HttpServletRequest request,
 			  HttpServletResponse response) throws ServletException, IOException {
+		  
 		//gets the parameter entered into the form by the user
 		  String productionStandard = request.getParameter("productionStandard");
 		  

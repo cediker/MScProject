@@ -11,13 +11,15 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
 	rel="stylesheet">
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 <script src="scripts/ajaxProductionStandards.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
 
 <style>
 body {
@@ -148,22 +150,18 @@ text-align: left;
 			<h2 align="center">Delete Production Standard</h2>
 			<form id="delete-prod-std">
 			<table>
-			<tr>
+				<tr>
 			<td>
 			Production Standard: 
 			</td>
-			
 			<td>
-			<input type="text" name="productionStandard"></td>
+			<input type="text" name="productionStandard" required></td>
 			</td>
-			
 			<td>
-			<button id=btn-deletePrdstd-byPrdStd type="button" class="tullisButton center">Proceed >></button>
+			<button id=btn-deletePrdstd-byPrdStd type="submit" class="tullisButton center">Proceed >></button>
 			</td>
 			</tr>
 			</table>
-			
-			<div id="demo"></div>
 			</form>
 		</div>
 	</div>

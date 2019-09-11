@@ -31,7 +31,6 @@ $(function() {
 		var value = $('#dropdown').val();
 		console.log(value);
 		viewProdStd(value);
-
 	});
 
 	$(document).on('keyup', '.txt-result', function(){
@@ -53,8 +52,6 @@ $(function() {
 			
 		}
 		
-		
-		
 		if(min!="" && max==""){
 			if(min<=value){
 				$(this).css('background','green');	
@@ -71,8 +68,7 @@ $(function() {
 			if(max>=value){
 				$(this).css('background','green');	
 			}
-		}
-		
+		}	
 		
 	})
 });
@@ -132,6 +128,7 @@ function buildpstd(result) {
 			});
 }																		
 
+//view production standard
 function viewProdStd(prodStd) {
 	$.ajax({
 		url : "viewProductionStandard",
@@ -143,7 +140,7 @@ function viewProdStd(prodStd) {
 	});
 }
 
-//view production standard
+
 $(function() {
 	$("#btn-submit").click(function() {
 		var value = $('#dropdown').val();

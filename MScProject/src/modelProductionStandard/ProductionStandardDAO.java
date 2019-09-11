@@ -80,12 +80,12 @@ public class ProductionStandardDAO {
 		openConnection();
 		// Create select statement and execute it
 		try {
-			String selectSQL = "select * from ProductionStandard;";
+			String selectSQL = "select distinct ProductionStandardName from ProductionStandard;";
 			ResultSet rs1 = stmt.executeQuery(selectSQL);
 		
 			// Retrieve the results
 			while (rs1.next()) {
-				oneProductionStandard = getNextProductionStandard(rs1);
+				oneProductionStandard = getNextProductionStandardName(rs1);
 				allProductionStandards.add(oneProductionStandard);
 			}
 			stmt.close();
@@ -164,6 +164,35 @@ public class ProductionStandardDAO {
 			System.out.println(se);
 		}
 	}
+	
+	
+	
+	
+	private ProductionStandard getNextProductionStandardName(ResultSet rs) {
+		ProductionStandard thisProductionStandard = null;
+		try {
+			thisProductionStandard = new ProductionStandard();
+			thisProductionStandard.setProductionStandardName(rs.getString("productionStandardName"));
+
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+		
+		return thisProductionStandard;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 

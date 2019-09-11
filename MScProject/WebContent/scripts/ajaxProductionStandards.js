@@ -21,8 +21,6 @@ $(document).ready(function() {
 		  });
     	  
     	  let dropdown = "<select name='row["+i+"][test]'>" +options+ "</select>";
-    	  
-            
            
 		   $('#dynamic_field').append('<tr id="row'+i+'">\
 		   <td>'+dropdown+'</td>\
@@ -52,33 +50,18 @@ $(function() {
 
 //view production standard
 $(function() {
-	$('#view-prod-std').validate({
+	$('#view-prod-std').validate({ 
 	    submitHandler: function(form) {
 	    	$("#imageDyn").show();
 			$("#btnPrint").show();
-			var prodStd = $('#view-prod-std').serialize();
-			viewProdStd(prodStd);
+			var ps = $('#dropdown').val();
+			console.log(ps);
+			viewProdStdOnly(ps);
 			$.notify("It worked", "success");
-			return false;
+			
 	    }
 	    
 	   });
-	
-
-	
-	
-	
-	
-});
-
-
-//delete production standard
-$(function() {
-	$("#btn-deletePrdstd-byPrdStd").click(function() {
-		var prodStd = $('#delete-prod-std').serialize();
-		deleteProdStd(prodStd);
-		
-	});
 });
 
 
@@ -92,7 +75,7 @@ $(function() {
 		dataType: "text",
 		type: "POST",
 		success: function(result) {
-			$.notify("Production Standard Added.", "success");
+			
 		}
 	});
 }
@@ -111,14 +94,15 @@ function getTestMethods(callback) {
 	
 	
 
-function viewProdStd(prodStd) {
+function viewProdStdOnly(ps) {
 		$.ajax({
 					url : "viewProductionStandard",
-					data : prodStd,
+					data : {productionStandard:ps},
 					success : function(result){
 					var div = "#demo";
 					constructTable(result, div);
 					}
+	
 		});
 	}
 
@@ -136,13 +120,29 @@ function getTestMethods(callback) {
 		}
 
 
+
+//delete production standard
+$(function() {
+	$('#delete-prod-std').validate({ 
+	    submitHandler: function(form) {
+		var prodStd = $('#delete-prod-std').serialize();
+		console.log(prodStd);
+		deleteProdStd(prodStd);
+		$.notify("Removed from database", "success");
+		return false;
+	    }
+	});
+});
+
 function deleteProdStd(prodStd) {
+	
 	$.ajax({
 				url : "deleteProductionStandard",
 				data : prodStd,
 				success : function(result){
-				var div = "#demo";
+					$.notify("Production Standard Deleted.", "success");
 				}
+	
 	});
 }
 
@@ -157,13 +157,49 @@ $(document).on("click", '#btnPrint', function () {
 
 }); 
 
+});
+ 
+  
+  
+  function constructTable(result, div){
+		var table = '';
+		var div;
+		var title;
+		var date;
+		console.log(result);
 
+			var rs = result;
+			var title;
+			var description;
+			
+			
+			$.each(rs, function(key, rs) { 
 
-  });
-  
-  
-  
-  
-  
-  
+				title = null;
+				title = rs.productionStandardName;
+				date = null;
+				date = rs.dateCreated;
+				description = null;
+				description = rs.description;
+				table += '<tr>';
+			
+				table += '<td>' + rs.testMethod + '</td>';
+				table += '<td>' + rs.minimum + '</td>';		
+				table += '<td>' + rs.maximum + '</td>';
+				table += '</tr>';
+
+			});
+ 
+  	
+		var title1 =  "<h4 class=leftAlign>Production Standard Code: "+ title +"</h4>"
+		var description1 = "<h2>"+ description +"</h2>"
+		var lineSpace = "<br />"
+		var title =  "<h1>Test Methods</h1>"
+		var headers = "<tr><td><strong>Test Method ID</strong></td><td><strong>Document Number</strong></td><td><strong>Document Title</strong></td><td><strong>Unit</strong></td></tr>";
+		$(div).html('<table width="100%">' + lineSpace + title + lineSpace + headers + table + '</table>');
+		var headers = "<tr><td><strong>Test Method</strong></td><td><strong>Minimum Value</strong></td><td><strong>Maximum Value</strong></td></tr>";
+		$(div).html('<table width="100%">' + lineSpace + title1 + '</br>' + description1 + lineSpace + headers + table + '</table>'+'<br>'+'<p>Date Created: </p>'+date);
+
+	}
+
 

@@ -16,7 +16,7 @@ $(document).ready(
 				productionSData.forEach(function(row) {
 					options += "<option value='" + row.productionStandardName
 							+ "'>" + row.productionStandardName + "</option>";
-					console.log("HI " + options);
+					console.log(options);
 				});
 
 				dropdown = "<select id='dropdown'>" + options + "</select>";

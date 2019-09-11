@@ -1,6 +1,7 @@
 package productionStandardController;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -10,21 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import converter.JSONConverter;
+
 import modelProductionStandard.ProductionStandard;
 import modelProductionStandard.ProductionStandardDAO;
-import modelTestMethod.TestMethod;
-import modelTestResult.TestResult;
+
 
 @WebServlet("/viewProductionStandard")
 public class viewProductionStandardServlet extends HttpServlet {
-	
+	String productionStandard;
 	  @Override
 	  public void doGet(HttpServletRequest request,
 			  HttpServletResponse response) throws ServletException, IOException {
-		
-		  String productionStandard = request.getParameter("productionStandard");
+		 
+		  String part = request.getParameter("productionStandard").toString();
 		  
+		  String productionStandard = java.net.URLDecoder.decode(part, StandardCharsets.UTF_8.name());
 		 
 		  ProductionStandardDAO ProductionStandardsDAO = new ProductionStandardDAO();
 		  ArrayList<ProductionStandard> allProductionStandards = new ArrayList<>();
@@ -42,6 +43,7 @@ public class viewProductionStandardServlet extends HttpServlet {
 		   RequestDispatcher dispatcher =
 				      request.getRequestDispatcher(outputPage);
 				    dispatcher.include(request, response);
+				    
 				    }
 				  
 
