@@ -145,18 +145,18 @@ $(function() {
 	$("#btn-submit").click(function() {
 		var value = $('#dropdown').val();
 		var jobNumber = $('#jobNumber').val();
-		var roll = $('#roll').val()
-		console.log(value, jobNumber, roll);
-		var testResult = $('#addTestResult').serialize();
-		console.log(testResult);
+		var roll = $('#roll').val();
+		var testResult = $('#prod-std').serialize();
+		console.log("Please Read:" + testResult);
 		addTestResult(value, jobNumber, roll, testResult);
 	});
 
 });
 
 function addTestResult(value, jobNumber, roll, testResult) {
+
 	$.ajax({
-		url : "AddTestResult",
+		url : "addTestResult",
 		type: "POST",
 		data: {value, jobNumber, roll, testResult},
 		dataType: "text",

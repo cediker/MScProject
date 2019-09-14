@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import modelTestResult.TestResult;
 
 /**
  * this class is the data access object
@@ -37,9 +41,8 @@ public class TestResultDAO {
 
 		// connecting to database
 		try {
-			// connection string for demos database, username demos, password
-			// demos
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/QualityControl", "root", "Tullis200");
+			// connection string for database, username , password
+			conn = DriverManager.getConnection("jdbc:mysql://104.155.111.28:3306/QualityControl", "root", "Tullis200");
 			stmt = conn.createStatement();
 		} catch (SQLException se) {
 			System.out.println(se);
@@ -59,30 +62,11 @@ public class TestResultDAO {
 		TestResult thisTestResult = null;
 		try {
 			thisTestResult = new TestResult();
-			thisTestResult.setId(rs.getInt("ID"));
-			thisTestResult.setjobNumber(rs.getInt("jobNumber"));
+			thisTestResult.setjobNumber(rs.getString("jobNumber"));
 			thisTestResult.setRoll(rs.getString("roll"));
 			thisTestResult.setProductionStandard(rs.getString("productionStandard"));
-			thisTestResult.setGrammageBasePaper(rs.getString("grammageBasePaper"));
-			thisTestResult.setGrammageRelease(rs.getString("grammageRelease"));
-			thisTestResult.setCoatWeightAdhesive(rs.getString("coatWeightAdhesive"));
-			thisTestResult.setCoatWeightCoating(rs.getString("coatWeightCoating"));
-			thisTestResult.setCoatWeightGumBarrier(rs.getString("coatWeightGumBarrier"));
-			thisTestResult.setGrammageTotalSubstance(rs.getString("grammageTotalSubstance"));
-			thisTestResult.setCaliperBasePaper(rs.getString("caliperBasePaper"));
-			thisTestResult.setCaliperRelease(rs.getString("caliperRelease"));
-			thisTestResult.setCaliperTotal(rs.getString("caliperTotal"));
-			thisTestResult.setTensileStrengthMachineDirection(rs.getString("tensileStrengthMachineDirection"));
-			thisTestResult.setTensileStrengthCrossDirection(rs.getString("tensileStrengthCrossDirection"));
-			thisTestResult.setTearingResistanceMachineDirection(rs.getString("tearingResistanceMachineDirection"));
-			thisTestResult.setTensileStrengthCrossDirection(rs.getString("tensileStrengthCrossDirection"));
-			thisTestResult.setMoistureContent(rs.getString("moistureContent"));
-			thisTestResult.setOpacity(rs.getString("opacity"));
-			thisTestResult.setPickingResistanceDennisonWax(rs.getString("pickingResistanceDennisonWax"));
-			thisTestResult.setWaterAbsorptionCobb(rs.getString("waterAbsorptionCobb"));
-			thisTestResult.setPickingResistanceIGTmvo(rs.getString("pickingResistanceIGTmvo"));
-			thisTestResult.setPickingResistanceIGTlvo(rs.getString("pickingResistanceIGTlvo"));
-			thisTestResult.setInkAbsorbencyIGTStainLength(rs.getString("inkAbsorbencyIGTStainLength"));
+			thisTestResult.setTestMethod(rs.getString("testMethod"));
+			thisTestResult.setTestResult(rs.getString("testResult"));
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -93,27 +77,7 @@ public class TestResultDAO {
 		return thisTestResult;
 	}
 
-	public ArrayList<TestResult> getAllTestResults() {
 
-		ArrayList<TestResult> allTestResults = new ArrayList<TestResult>();
-		openConnection();
-		// Create select statement and execute it
-		try {
-			String selectSQL = "select * from TestResult;";
-			ResultSet rs1 = stmt.executeQuery(selectSQL);
-			// Retrieve the results
-			while (rs1.next()) {
-				oneTestResult = getNextTestResult(rs1);
-				allTestResults.add(oneTestResult);
-			}
-			stmt.close();
-			closeConnection();
-		} catch (SQLException se) {
-			System.out.println(se);
-		}
-		
-		return allTestResults;
-	}
 	
 	public ArrayList<TestResult> getTestResultByJobNumber(int jobNumber) {
 		ArrayList<TestResult> allTestResults = new ArrayList<TestResult>();
@@ -136,16 +100,18 @@ public class TestResultDAO {
 		}
 		return allTestResults;
 	}
-
-
-/*	public void insertFilm(Film myFilm) {
-
+	
+	
+	public void insertTestResult(TestResult tr) {
+	
 		openConnection();
+		Date today = Calendar.getInstance().getTime();
+		String dateTime = today.toString();
+		
+		System.out.println("in insert test result");
 		// Create select statement
 		try {
-			String selectSQL = "INSERT INTO films (id, title, year, director, stars, review) VALUES ('" + myFilm.getId()
-					+ "','" + myFilm.getTitle() + "','" + myFilm.getYear() + "','" + myFilm.getDirector() + "','"
-					+ myFilm.getStars() + "','" + myFilm.getReview() + "');";
+			String selectSQL = "INSERT INTO TestResult (JobNumber, Roll, ProductionStandard, dateTimeSubmit, TestMethod, TestResult) VALUES ('"+ tr.getJobNumber() + "','" + tr.getRoll() + "','" +  tr.getProductionStandard() + "','" + dateTime + "','" + tr.getTestMethod() + "','"  + tr.getTestResult() + "');";
 			// executes statement
 			stmt.executeUpdate(selectSQL);
 			// close statement
@@ -157,24 +123,5 @@ public class TestResultDAO {
 		}
 	}
 
-	*//**
-	 * this method deletes a film based on ID
-	 * 
-	 * @param id film ID from within database
-	 *//*
-	public void deleteFilm(int id) {
-
-		openConnection();
-		// Create select statement and execute it
-		try {
-			String sql = "DELETE from films where id = " + id + ";";
-			stmt.executeUpdate(sql);
-			// closes SQL statement
-			stmt.close();
-			// closes connection
-			closeConnection();
-		} catch (SQLException se) {
-			System.out.println(se);
-		}
-	}*/
 }
+

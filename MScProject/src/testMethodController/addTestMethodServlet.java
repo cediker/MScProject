@@ -24,7 +24,7 @@ public class addTestMethodServlet extends HttpServlet {
 		 	//creates new TestMethod object
 		 
 		
-		 
+		
 		 
 		 	TestMethod newTestMethod = new TestMethod();
 		 	newTestMethod.setTestMethodId("TM000");

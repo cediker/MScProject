@@ -17,7 +17,7 @@ public class JSONConverter {
 			ArrayList<TestResult> allfilms = new ArrayList<>();
 
 			TestResultDAO dao = new TestResultDAO();
-			allfilms = dao.getAllTestResults();
+			//allfilms = dao.getAllTestResults();
 			// Iterate through all test results using toString()
 		
 			for (Iterator<TestResult> iterator = allfilms.iterator(); iterator.hasNext();) {

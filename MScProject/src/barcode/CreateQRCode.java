@@ -35,7 +35,6 @@ public class CreateQRCode{
                 //100x100 size
                 BarcodeFormat.QR_CODE, 150, 150, hintMap);
            
-            System.out.println(bm);
            
             MatrixToImageWriter.writeToFile(bm, filePath.substring(filePath
                 .lastIndexOf('.') + 1), new File(filePath));

@@ -32,7 +32,7 @@ public class ProductionStandardDAO {
 		try {
 			// connection string for demos database, username demos, password
 			// demos
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/QualityControl", "root", "Tullis200");
+			conn = DriverManager.getConnection("jdbc:mysql://104.155.111.28:3306/QualityControl", "root", "Tullis200");
 			stmt = conn.createStatement();
 		} catch (SQLException se) {
 			System.out.println(se);
