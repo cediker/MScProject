@@ -70,20 +70,23 @@ public class TestMethodDAO {
 		}
 
 		public ArrayList<TestMethod> getAllTestMethods() {
-
+			//declares an empty array list allTestMethods
 			ArrayList<TestMethod> allTestMethods = new ArrayList<TestMethod>();
 			openConnection();
 			// Create select statement and execute it
 			try {
+				//SQL query string
 				String selectSQL = "select * from TestMethod;";
+				//executes query and assigns the result to rs1
 				ResultSet rs1 = stmt.executeQuery(selectSQL);
-			
 				// Retrieve the results
 				while (rs1.next()) {
 					oneTestMethod = getNextTestMethod(rs1);
 					allTestMethods.add(oneTestMethod);
 				}
+				//closes statement
 				stmt.close();
+				//closes connection
 				closeConnection();
 			} catch (SQLException se) {
 				System.out.println(se);
@@ -164,12 +167,12 @@ public class TestMethodDAO {
 		
 		
 		  //this method deletes a test method based on ID
-		public void deleteTestMethod(String testMethodId) {
+		public void deleteTestMethod(String testMethod) {
 
 			openConnection();
 			// Create select statement and execute it
 			try {
-				String sql = "DELETE from testMethodId where id = " + testMethodId + ";";
+				String sql = "DELETE from TestMethod where TestMethodID = '" + testMethod + "';";
 				stmt.executeUpdate(sql);
 				// closes SQL statement
 				stmt.close();

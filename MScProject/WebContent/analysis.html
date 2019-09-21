@@ -5,12 +5,20 @@
   <title>Tullis Russell: Quality Control</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/tullisrussell.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="scripts/analysis.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="scripts/analysis.js"></script>
+  <script src="scripts/ajaxProductionStandardDropdown.js"></script>
   <style>
   body {
     font: 20px Montserrat, sans-serif;
@@ -85,7 +93,26 @@
 
 
 <!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center">    
+<div class="container-fluid bg-3 text-center"> 
+
+			<form id="prod-std-find">
+				<table>
+					<tr>
+						<td>Production Standard:</td>
+						<td class="productionStandardS">
+			
+						</td>
+						<td>Test Method:</td>
+						<td class="testMethodDropdown">
+						</td>
+						<td>
+							<button id="btn-getTestMethods-byPrdStd" type="submit" class="tullisButton center">Proceed >></button>
+						</td>
+					</tr>
+				</table>
+			</form>
+
+   
 </br>
 <canvas id="myChart" width="60%" height="20px"></canvas>
 </div>

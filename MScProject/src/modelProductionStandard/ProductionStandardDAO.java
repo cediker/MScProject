@@ -100,6 +100,29 @@ public class ProductionStandardDAO {
 	
 	
 	
+	public ArrayList<ProductionStandard> getTestMethodsByProductionStandardName(String productionStandard) {
+		
+		openConnection();
+		ArrayList<ProductionStandard> allProductionStandards = new ArrayList<>();
+		// Create select statement and execute it
+		try {
+			String selectSQL = "SELECT DISTINCT TestMethod FROM ProductionStandard WHERE ProductionStandardName = '" + productionStandard + "';";
+			ResultSet rs1 = stmt.executeQuery(selectSQL);
+			// Retrieve the results
+			while (rs1.next()) {
+				oneProductionStandard = getNextTestMethodName(rs1);
+				allProductionStandards.add(oneProductionStandard);
+			}
+			stmt.close();
+			closeConnection();
+		} catch (SQLException se) {
+			System.out.println(se);
+		}
+		return allProductionStandards;
+	}
+	
+	
+	
 	
 	
 	public ArrayList<ProductionStandard> getProductionStandardByName(String productionStandard) {
@@ -122,6 +145,7 @@ public class ProductionStandardDAO {
 		}
 		return allProductionStandards;
 	}
+	
 
 
 	
@@ -184,6 +208,22 @@ public class ProductionStandardDAO {
 		return thisProductionStandard;
 	}
 	
+	
+	private ProductionStandard getNextTestMethodName(ResultSet rs) {
+		ProductionStandard thisProductionStandard = null;
+		try {
+			thisProductionStandard = new ProductionStandard();
+			thisProductionStandard.setTestMethod(rs.getString("testMethod"));
+
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+		
+		return thisProductionStandard;
+	}
 	
 	
 	

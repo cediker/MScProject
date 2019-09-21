@@ -37,7 +37,7 @@ $(document).ready(function() {
 	  }); 
 
 
-//add test method
+//add production standard click function
 $(function() {
 	$("#btn-submit").click(function() {
 		var testMethod = $('#addProductionStandard').serialize();
@@ -48,19 +48,16 @@ $(function() {
 
 
 
-//view production standard
+//view production standard submit handler
 $(function() {
 	$('#view-prod-std').validate({ 
 	    submitHandler: function(form) {
 	    	$("#imageDyn").show();
 			$("#btnPrint").show();
 			var ps = $('#dropdown').val();
-			console.log(ps);
 			viewProdStdOnly(ps);
-			$.notify("It worked", "success");
-			
+			$.notify("It worked", "success");	
 	    }
-	    
 	   });
 });
 
@@ -121,7 +118,7 @@ function getTestMethods(callback) {
 
 
 
-//delete production standard
+//delete production standard submit handler
 $(function() {
 	$('#delete-prod-std').validate({ 
 	    submitHandler: function(form) {

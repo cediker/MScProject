@@ -109,25 +109,22 @@
 		<span><button type="button" id="btn-add-testMethod" class="tullisButton"><a href="addTestMethod.html" style="color:#FFFFFF">Add Test Method</a></button></span>
 		</div>
 		<div class="col-sm-4">
-		<span><button type="button" id="btn-delete-methods" class="tullisButton"><a href="deleteTestMethod.html" style="color:#FFFFFF">Delete Test Method</button></span>
+		<span><button type="button" id="btn-delete-methods" class="tullisButton">Delete Test Method</button></span>
 		</div>
 		</div>
-		<div id="demo"></div>
-	</div>
+</div>		
 
 	<!-- Third Container (Grid) -->
 
 	<div class="container-fluid bg-3 text-center">
 	<fieldset>
-		<legend>Add new test method...</legend>
-		<form id="formAddTestMethod">
+		<legend>Delete test method by TM Number...</legend>
+		<form id="deleteTestMethod">
 		<p>CPTM Number</p>
-			<input type="text" id="documentNumber" name="documentNumber">
-			<br />
-			<p>Test Method Name</p><input type="text" id="documentTitle" name="documentTitle"> <br />
-			<p>Reporting Unit</p><input type="text" id="unit" name="unit"> <br />
-			<br/>
-			<button id="btn-add-testMethod" type="button" class="tullisButton center">Submit</button>
+			
+			<p>Test Method ID (TM-Number)</p><input type="text" id="TMid" name="TMid"> <br />
+			
+			<button id="btn-delete-testMethod" type="submit" class="tullisButton center">Submit</button>
 			<div id="demo"></div>
 		</form>
 	</fieldset>

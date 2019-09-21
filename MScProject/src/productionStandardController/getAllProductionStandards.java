@@ -20,8 +20,7 @@ public class getAllProductionStandards extends HttpServlet{
 	  @Override
 	  public void doGet(HttpServletRequest request,
 			  HttpServletResponse response) throws ServletException, IOException {
-		  
-		  System.out.println("Im here");
+		 
 	    //creates a new instance of the ProductionStandardsDAO
 		  ProductionStandardDAO ProductionStandardsDAO = new ProductionStandardDAO();
 		  //creates an empty array list

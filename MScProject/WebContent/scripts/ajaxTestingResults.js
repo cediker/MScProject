@@ -24,7 +24,7 @@ $(document).ready(
 			}
 		});
 
-// view production standard
+//conditional formating of text boxes (Test Results)
 $(function() {
 	$("#btn-test-prodstd").click(function() {
 		var sel = document.getElementById('dropdown');
@@ -37,7 +37,6 @@ $(function() {
 		var value = $(this).val();
 		var min = $(this).data('min');
 		var max = $(this).data('max');
-		console.log(value, min, max);
 		
 		if(min!="" && max!=""){
 			if(min<=value && max>=value){
