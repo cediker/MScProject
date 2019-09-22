@@ -27,12 +27,14 @@ public class getAllTestMethods extends HttpServlet{
 		  
 		  //calls method getAllTestMethods and assigns the result to all TestMethods
 		  allTestMethods = TestMethodsDAO.getAllTestMethods();
-		    request.setAttribute("TestMethods", allTestMethods);
-		    String outputPage;
+		  //sets attribute
+		  request.setAttribute("TestMethods", allTestMethods);
+		  String outputPage;
 		    
-		    
-		     response.setContentType("application/json");
-		     outputPage = "/WEB-INF/results/jsonTestMethods.jsp";
+		  //sets content type
+		  response.setContentType("application/json");
+		  //sets output page
+		  outputPage = "/WEB-INF/results/jsonTestMethods.jsp";
 		    
 		    RequestDispatcher dispatcher =
 		      request.getRequestDispatcher(outputPage);

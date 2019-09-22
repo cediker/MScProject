@@ -149,6 +149,27 @@ public class ProductionStandardDAO {
 
 
 	
+	public ArrayList<ProductionStandard> getProductionStandardTestMethodByName(String productionStandard, String testMethod) {
+		
+		openConnection();
+		ArrayList<ProductionStandard> allProductionStandards = new ArrayList<>();
+		// Create select statement and execute it
+		try {
+			String selectSQL = "SELECT * FROM ProductionStandard WHERE ProductionStandardName = '" + productionStandard + "' AND TestMethod = '"+ testMethod +"';";
+			ResultSet rs1 = stmt.executeQuery(selectSQL);
+			// Retrieve the results
+			while (rs1.next()) {
+				oneProductionStandard = getNextProductionStandard(rs1);
+				allProductionStandards.add(oneProductionStandard);
+			}
+			stmt.close();
+			closeConnection();
+		} catch (SQLException se) {
+			System.out.println(se);
+		}
+		return allProductionStandards;
+	}
+	
 	
 	
 	public void insertProductionStandard(ProductionStandard pstd) {
@@ -210,9 +231,12 @@ public class ProductionStandardDAO {
 	
 	
 	private ProductionStandard getNextTestMethodName(ResultSet rs) {
+		//declares variable thisProductionStandard
 		ProductionStandard thisProductionStandard = null;
 		try {
+			
 			thisProductionStandard = new ProductionStandard();
+			//sets testMethod element of production standard
 			thisProductionStandard.setTestMethod(rs.getString("testMethod"));
 
 		

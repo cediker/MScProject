@@ -68,6 +68,7 @@ public class TestResultDAO {
 			thisTestResult.setTestMethod(rs.getString("testMethod"));
 			thisTestResult.setTestResult(rs.getString("testResult"));
 		
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,6 +88,29 @@ public class TestResultDAO {
 		try {
 			
 			String selectSQL = "select * from TestResult where jobNumber = " + jobNumber + ";";
+			ResultSet rs1 = stmt.executeQuery(selectSQL);
+			// Retrieve the results
+			while (rs1.next()) {
+				oneTestResult = getNextTestResult(rs1);
+				allTestResults.add(oneTestResult);
+			}
+			stmt.close();
+			closeConnection();
+		} catch (SQLException se) {
+			System.out.println(se);
+		}
+		return allTestResults;
+	}
+	
+	
+	public ArrayList<TestResult> getTestResultsByPrdStdAndTestMethod(String productionStandard, String testMethod) {
+		ArrayList<TestResult> allTestResults = new ArrayList<TestResult>();
+		openConnection();
+		
+		// Create select statement and execute it
+		try {
+			
+			String selectSQL = "select * from TestResult where ProductionStandard = '" + productionStandard + "' AND TestMethod = '"+ testMethod +"';";
 			ResultSet rs1 = stmt.executeQuery(selectSQL);
 			// Retrieve the results
 			while (rs1.next()) {

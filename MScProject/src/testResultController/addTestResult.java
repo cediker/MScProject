@@ -26,14 +26,11 @@ import modelTestResult.TestResultDAO;
 		}
 			 public void doPost(HttpServletRequest request,
 					HttpServletResponse response) throws ServletException, IOException {	 
-				
+				//gets parameters and assigns them to variables
 				String productionStandard = request.getParameter("value");
 				String jobNumber = request.getParameter("jobNumber");
 				String roll = request.getParameter("roll");
-				
-			
-				
-				
+				//Creates QRCode
 				CreateQRCode.createQRCode(jobNumber + ":"+ roll);
 				
 				//gets the HTTP encoded test parameter String
@@ -74,13 +71,16 @@ import modelTestResult.TestResultDAO;
 				//loops to add variables to database
 				for (int j=0; j<mapSize;j++){
 					TestResult tres = new TestResult();
+					//creates new instance of TestResultDAO
 					TestResultDAO dao = new TestResultDAO();
+					//uses setters to set test result elements
 					tres.setjobNumber(jobNumber);
 					tres.setRoll(roll);
 					tres.setProductionStandard(productionStandard);
 					tres.setTestMethod(map.get("items["+j+"][name]"));
 					tres.setTestResult(map.get("items["+j+"][value]"));
-				dao.insertTestResult(tres);
+					//inserts test result by calling the insertTestResult method
+					dao.insertTestResult(tres);
 				}
 					
 			

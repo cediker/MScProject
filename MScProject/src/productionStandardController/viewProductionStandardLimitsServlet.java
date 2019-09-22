@@ -16,29 +16,35 @@ import modelProductionStandard.ProductionStandard;
 import modelProductionStandard.ProductionStandardDAO;
 
 
-@WebServlet("/viewProductionStandard")
-public class viewProductionStandardServlet extends HttpServlet {
+@WebServlet("/viewProductionStandardLimitsServlet")
+public class viewProductionStandardLimitsServlet extends HttpServlet {
 	String productionStandard;
 	  @Override
 	  public void doGet(HttpServletRequest request,
 			  HttpServletResponse response) throws ServletException, IOException {
-		  //declares variable part and assigns request parameter
+		 //gets production standard parameter
 		  String part = request.getParameter("productionStandard").toString();
-		  //decodes variable part and assigns the result to productionStandard
+		 //gets test method parameter
+		  String part1 = request.getParameter("testMethod").toString();
+		  //decodes parameters and assigns the result to String variables
 		  String productionStandard = java.net.URLDecoder.decode(part, StandardCharsets.UTF_8.name());
-		  //creates a new instance of ProductionStandardsDAO
+		  String testMethod = java.net.URLDecoder.decode(part1, StandardCharsets.UTF_8.name());
+		 
+		  //creates a new instance of ProductionStandardDAO
 		  ProductionStandardDAO ProductionStandardsDAO = new ProductionStandardDAO();
-		  //creates a new list
+		  //declares a new array list
 		  ArrayList<ProductionStandard> allProductionStandards = new ArrayList<>();
-		  //calls getProductionStandardByName method and assigns the result to allProductionStandards
-		  allProductionStandards = ProductionStandardsDAO.getProductionStandardByName(productionStandard);
 		  
+		  //calls getProductionStandardTestMethodByName and assigns the result to allProductionStandards
+		  allProductionStandards = ProductionStandardsDAO.getProductionStandardTestMethodByName(productionStandard, testMethod);
+		
 		  //sets attribute
 		  request.setAttribute("ProductionStandards", allProductionStandards);
 		  
-		   
+		   //declares output page
 		   String outputPage;
-		   //sets content type 
+		    
+		   
 		   response.setContentType("application/json");
 		   outputPage = "/WEB-INF/results/jsonProductionStandards.jsp";
 		    

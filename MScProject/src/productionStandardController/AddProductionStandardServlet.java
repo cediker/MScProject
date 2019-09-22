@@ -25,21 +25,20 @@ public class AddProductionStandardServlet extends HttpServlet{
 	}
 		 public void doPost(HttpServletRequest request,
 				HttpServletResponse response) throws ServletException, IOException {	 
-			//declares variables and sets them to null
 			
-			CreateQRCode.createQRCode(request.getParameter("productionStandardName"));
-			 
-			
+			//gets parameter names
 			Enumeration<String> params = request.getParameterNames(); 
 			while(params.hasMoreElements()){
 			 String paramName = params.nextElement();
 			 System.out.println("Parameter Name - "+paramName+", Value - "+request.getParameter(paramName));
 			}
 			
-			
+			//sets variable i to 2
 			int i = 2;
+			//while request parameter "row["+i+"][test]" is not equal to null loop
 			while(request.getParameter("row["+i+"][test]")!= null){
 				ProductionStandard pstd = new ProductionStandard();
+				//sets elements of production standard
 				pstd.setProductionStandardName(request.getParameter("productionStandardName"));
 				pstd.setDescription(request.getParameter("description"));
 				Date today = Calendar.getInstance().getTime();

@@ -94,15 +94,6 @@ import java.io.Serializable;
 			return "Test Method ID: " + this.getTestMethodId() + " Document Number: " + this.documentNumber + " Document Title: "
 					+ this.getDocumentTitle();
 		}
-		/**
-		 * The toTextString() method returns a String of all film attributes with separation delimiters
-		 * @return String of all film attributes with separation delimiters
-		 */
-		public String toTextString() {
-			return this.getTestMethodId() + "/&*" + this.getDocumentNumber() + "/&*"
-					+ this.getDocumentTitle()+ "$$$";
-		}
-
 	}
 
 
